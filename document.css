@@ -1,0 +1,33 @@
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
+
+header {
+	width: 100%;
+	background-color: #246ee5;
+	outline: 0;
+	margin: 0 auto;
+	padding: 0;
+	border-bottom: 2px solid;
+	border-color: #000000;
+	font-color: #ffffff;
+}
+
+body {
+	font-family: "Droid Serif", sans-serif;
+	font-size: 12pt;
+}
+
+a, strong, em {
+	color: #0099ff;
+}
+
+p.info,
+#login p {
+	width: 80%;
+	margin: lvw auto;
+}
+
+input[type="number"] {
+	width: 1.7em;
+	height: 1.7em;
+}
