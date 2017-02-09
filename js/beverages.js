@@ -10,17 +10,19 @@
 // "count" : "47","price" : "29.00"}
 
 // var response = JSON.parse(xhr.responseText);
-// for (var i = 0; i < response.payload.length; i++) {
-// var temp = response.payload[i];
+// response["payload"][0]["beer_id"] will give the beer_id of the first element in the payload
+// for (var i = 0; i < response["payload"].length; i++) {
+// var tempname = response["payload"][i]["namn"];
+// var tempname2 = response["payload"][i]["namn2"];
+// var tempsbl = response["payload"][i]["sbl_price"];
+// var temppub = response["payload"][i]["pub_price"];
+// var tempid = response["payload"][i]["beer_id"];
+// var tempcount = response["payload"][i]["count"];
+// var tempprice = response["payload"][i]["price"];
 // Now we have the i'th element of the list of all beverages, and can get variables above like such:
-// temp.namn
-// temp.namn2
-// temp.sbl_price
-// temp.pub_price
-// temp.beer_id
-// temp.count
-// temp.price
 // And do some fun things with them
+
+// https://jsfiddle.net/5dvsx8vy/2/ feel free to play around further
 // }
 
 //So we can have that data for all, and if you want to read more about one item you can get it from using the url below
