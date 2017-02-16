@@ -16,8 +16,9 @@ abstract class Controller {
       extract($this->data); //if we had run a model that got an array "data" this line would make it able to be read in the html-code.
 
       //The website always renders the header and the footer, if you look at the html code that gets
-      //displayed on the website then it will seem like one single html-code.
+      //displayed on the website by this code then it will seem like one single html-code.
       //This means that we can manipulate every aspect of the site in different files.
+      //For example if we write a <div> at the end of the header and then ended the content view with </div>, html would regard it as a single div.
 
       require_once('views/header.html');
       require_once('views/' . $this->view . '.html');
