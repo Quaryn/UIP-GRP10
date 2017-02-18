@@ -5,6 +5,7 @@
 
 // inventory_get gives a list of all drinks
 // http://pub.jamaica-inn.net/fpdb/api.php?username=ervtod&password=ervtod&action=inventory_get
+// http://pub.jamaica-inn.net/fpdb/api.php?action=inventory_get     works aswell
 // one example object has following values:
 // {"namn" : "Black Tower","namn2" : "Rivaner","sbl_price" : "29.00","pub_price" : "35","beer_id" : "604504",
 // "count" : "47","price" : "29.00"}
@@ -47,21 +48,41 @@ function Beverage(name1, name2, sbl_price, pub_price, beer_id, count, price) {
 
 
 }
-/* This will make a HTTP request, where we request to get the info from URL
-true-parameter makes it asynchronous
-var xhr = new XMLHttpRequest();
-xhr.open('GET', "URL", true);
-xhr.send();
+//This will make a HTTP request, where we request to get the info from URL
+//true-parameter makes it asynchronous
+function HTTPGetRequest(theAction) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', theUrl, true);
+    xhr.send();
 
-processRequest handler is called when readystate changes.
-xhr.addEventListener("readystatechange", processRequest, false);
+    //processRequest handler is called when readystate changes.
+    xhr.addEventListener("readystatechange", processRequest, false);
 
- xhr.onreadystatechange = processRequest;
+    xhr.onreadystatechange = processRequest;
 
- function processRequest(e) {
- // rS=4 Means 'DONE', everything completed, and HTTP status code 200 same.
-    if (xhr.readyState == 4 && xhr.status == 200) {
-        var response = JSON.parse(xhr.responseText);
+    function processRequest(e) {
+        // rS == 4 & status == 200 => all is okay
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            return JSON.parse(xhr.responseText);
+        }
     }
- }
-*/
+}
+
+// Will return an array that where each item contains a beer. Can be further used to look at each beer_id.
+function getBeers() {
+    var beers = [];
+    var response = HTTPGetRequest(inventory_get);
+    for (var i = 0; i < response["payload"].length; i++) {
+        beers.push(response["payload"][i]);
+    }
+    return beers;
+}
+
+function getDetailedBeers() {
+    var beers = getBeers();
+    var detailedBeers = [];
+    for (var i = 0; i < beers.length; i++) {
+        var response = HTTPGetRequest("beer_data_get&beer_id=" + beers[i]["beer_id"]);
+        detailedBeers.push(response["payload"][i]);
+    }
+}
