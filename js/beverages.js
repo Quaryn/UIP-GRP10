@@ -163,7 +163,7 @@ function sortBeverageByType () {
             whiteWine[temp] = detailedBeers[i];
         }
         else if (type.substring(0,7) == "Rött vin") {
-            temp = redWhine.length;
+            temp = redWine.length;
             redWhine[temp] = detailedBeers[i];
         }
         else if (type.substring(0,4) == "Cider") {
