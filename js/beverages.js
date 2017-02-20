@@ -138,19 +138,19 @@ function sortBeverageByType () {
             temp = porterStout.length;
             porterStout[temp] = detailedBeers[i];
         }
-        else if (type.substring(0,11) == "Alkoholfritt") {
+        else if (type.substring(0, 11) == "Alkoholfritt") {
             temp = alcFree.length;
             alcFree[temp] = detailedBeers[i];
         }
-        else if (type.substring(0,7) == "Vitt vin") {
+        else if (type.substring(0, 7) == "Vitt vin") {
             temp = whiteWine.length;
             whiteWine[temp] = detailedBeers[i];
         }
-        else if (type.substring(0,7) == "Rött vin") {
+        else if (type.substring(0, 7) == "Rött vin") {
             temp = redWine.length;
             redWhine[temp] = detailedBeers[i];
         }
-        else if (type.substring(0,4) == "Cider") {
+        else if (type.substring(0, 4) == "Cider") {
             temp = ciders.length;
             ciders[temp] = detailedBeers[i];
         }
@@ -163,4 +163,20 @@ function sortBeverageByType () {
 
     // Now we just need to get these arrays to the site
 
+}
+
+// inventory_append&beer_id=?&amount=?&price=?
+// Amount:
+
+// Takes a list of beer_id's and amount (2d structure, should be [[beer_id,amount],[beer_id,amount]..]), together with user
+// Since we can't send an amount, we have to send the HTTP Get for each beer. The amount of times this is done
+// is controlled by the second column in beerarray.
+function addPurchase(beerarray, user) {
+    for (var i = 0; i < beerarray.length; i++) {
+        var beer_id = beerarray[i][0];
+        var amt = beerarray[i][1];
+        for (var i = 0; i < amt; i++) {
+            HTTPGetRequest("purchases_append&beer_id=" + beer_id + "&username=" + user.uname + "&password=" + user.pword);
+        }
+    }
 }

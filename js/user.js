@@ -80,3 +80,29 @@ function loginAttempt(uname, pword) {
         }
     }
 }
+
+// {"type" : "iou_get", "payload" : [{"user_id" : "24","first_name" : "Ervin","last_name" : "Todd","assets" : "-1090"}]}
+function getDebt(user) {
+    var response = JSON.parse(HTTPGetRequest("action=iou_get&username=" + user.uname + "&password=" + user.pword));
+    var listOfDebts = [];
+    for (var i = 0; i < response["payload"].length; i++) {
+        listOfDebts.push(response["payload"][i]["assets"]);
+    }
+    return listOfDebts;
+}
+
+// {"type" : "payments_get_all", "payload" : [{"transaction_id" : "191","user_id" : "24","admin_id" : "25",
+// "amount" : "500","timestamp" : "2014-10-03 17:47:48"}]}
+function getPayments(user) {
+    var response = JSON.parse(HTTPGetRequest("action=payments_get&username=" + user.uname + "&password=" + user.pword));
+    var len = response["payload"].length;
+    var listOfPayments = Create2DArray(len);
+    for (var i = 0; i < len; i++) {
+        listOfPayments[i][0] = response["payload"][i]["transaction_id"];
+        listOfPayments[i][1] = response["payload"][i]["user_id"];
+        listOfPayments[i][2] = response["payload"][i]["admin_id"];
+        listOfPayments[i][3] = response["payload"][i]["amount"];
+        listOfPayments[i][4] = response["payload"][i]["timestamp"];
+    }
+    return listOfPayments;
+}

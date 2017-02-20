@@ -7,7 +7,7 @@
 //true-parameter makes it asynchronous
 function HTTPGetRequest(theAction) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', theUrl, true);
+    xhr.open('GET', "http://pub.jamaica-inn.net/fpdb/api.php?" + theAction, true);
     xhr.send();
 
     //processRequest handler is called when readystate changes.
