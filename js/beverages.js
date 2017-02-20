@@ -78,11 +78,61 @@ function getBeers() {
     return beers;
 }
 
+// For each item in getBeers, get the more detailed version of the beer.
 function getDetailedBeers() {
     var beers = getBeers();
     var detailedBeers = [];
     for (var i = 0; i < beers.length; i++) {
         var response = HTTPGetRequest("beer_data_get&beer_id=" + beers[i]["beer_id"]);
         detailedBeers.push(response["payload"][i]);
+    }
+}
+
+// Sort into different arrays, if it's beer or wine, white or red etc.
+// The different kinds:
+// "Öl, Ljus lager"
+// "Öl, Ale"
+// "Öl, Porter och Stout"
+// "Alkoholfritt, Öl"
+// "Vitt vin, .."
+// "Rött vin, .."
+// "Cider, .."
+
+function sortBeverageByType () {
+    var detailedBeers = getDetailedBeers();
+
+    var lagers = [];
+    var ales = [];
+    var porterStout = [];
+    var alcFreeBeer = [];
+    var whiteWine = [];
+    var redWine = [];
+    var otherBeverages = [];
+
+    for (var i = 0; i < detailedBeers.length; i++) {
+        var current = detailedBeers[i]]
+        if (current["varugrupp"] == "Öl, Ljus lager") {
+            lagers.push(current);
+        }
+        else if (current["varugrupp"] == "Öl, Ale") {
+            ales.push(current);
+        }
+        else if (current["varugrupp"] == "Öl, Porter och Stout") {
+            porterStout.push(current);
+        }
+        else if (current["varugrupp"] == "Alkoholfritt, Öl") {
+            alcFreeBeer.push(current);
+        }
+        else if (current["varugrupp"].substring(0,7) == "Vitt vin") {
+            whiteWine.push(current);
+        }
+        else if (current["varugrupp"].substring(0,7) == "Rött vin") {
+            redWine.push(current);
+        }
+        else {
+            otherBeverages.push(current);
+        }
+
+        // Now the question is how to get these arrays to the site.
     }
 }
