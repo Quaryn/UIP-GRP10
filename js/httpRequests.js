@@ -4,6 +4,7 @@
 
 
 //This will make a HTTP GET request, where we request to get the info from URL
+// Choco: Does it get info from the database?
 //true-parameter makes it asynchronous
 function HTTPGetRequest(theAction) {
     var xhr = new XMLHttpRequest();

@@ -1,3 +1,4 @@
+/* Choco: Suppose we will write controllers in JS*/
 <?php
 
 

@@ -40,17 +40,19 @@ function Beverage(name1, name2, sbl_price, pub_price, beer_id, count, price) {
 
     this.name1 = name1; // Name of the beer
     this.name2 = name2; // Sometimes two strings for name
-    this.sbl_price = sbl_price;
+    this.sbl_price = sbl_price; // Choco: if Lars clarified that sbl_price can be ignored, why do we still keep it?
     this.pub_price = pub_price; // Amount the customer pays
     this.beer_id = beer_id;
-    this.count = count;
-    this.price = price;
+    this.count = count; /* Choco: does count controls the stock of the beer?
+    And we can create a threshold to issue an alarm when it goes low/crosses the predefined count?*/
+    this.price = price; // Choco: wholesale price the pub pays to the beer suppliers
 
 
 }
 
 
 // To be used below
+// Choco: move close to the code where this function is used?
 function Create2DArray(rows) {
     var arr = [];
     for (var i=0;i<rows;i++) {
@@ -61,7 +63,13 @@ function Create2DArray(rows) {
 
 // Will return an array that where each item contains a beer_id. This is only used to use in another function to get
 // more detailed info about each beer.
+/* Choco: Did you mean that this is just a function for checking against the stock?
+If so, change the comment above to reflect this purpose.
+And it doesn't seem only used with the function getDetailedBeers ().
+When users load the menu page, it will return beers in the menu
+after checking the inventory, which will show available beers.*/
 // Could add an option to only add if the inventory is higher than a certain amount
+// Choco: Agree with the threshold setting.
 function getBeers() {
     var beers = [];
     var response = JSON.parse(HTTPGetRequest("action=inventory_get"));
@@ -109,6 +117,7 @@ function getDetailedBeers() {
 // "Rött vin, .."
 // "Cider, .."
 
+/*Choco: I don't understand the code below, could you explain in the meeting? Sorting based on string length?*/
 function sortBeverageByType () {
     var detailedBeers = getDetailedBeers();
     var len = detailedBeers.length;
@@ -118,10 +127,10 @@ function sortBeverageByType () {
     var ales = Create2DArray(len);
     var porterStout = Create2DArray(len);
     var alcFree = Create2DArray(len);
-    var whiteWine = Create2DArray(len);
-    var redWine = Create2DArray(len);
-    var ciders = Create2DArray(len);
-    var otherBeverages = Create2DArray(len);
+    var whiteWine = Create2DArray(len); // Choco: it can be commented out for future use
+    var redWine = Create2DArray(len); // Choco: it can be commented out for future use
+    var ciders = Create2DArray(len); // Choco: it can be commented out for future use
+    var otherBeverages = Create2DArray(len); // Choco: it can be commented out for future use
 
     for (var i = 0; i < len; i++) {
         var type = detailedBeers[i][6]
@@ -171,6 +180,7 @@ function sortBeverageByType () {
 // Takes a list of beer_id's and amount (2d structure, should be [[beer_id,amount],[beer_id,amount]..]), together with user
 // Since we can't send an amount, we have to send the HTTP Get for each beer. The amount of times this is done
 // is controlled by the second column in beerarray.
+// Choco: Is it necessary to define beerarray and user first?
 function addPurchase(beerarray, user) {
     for (var i = 0; i < beerarray.length; i++) {
         var beer_id = beerarray[i][0];

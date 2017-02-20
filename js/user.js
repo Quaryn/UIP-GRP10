@@ -75,8 +75,10 @@ function loginAttempt(uname, pword) {
             // Failure
             if (uname == response["payload"][i]["username"]) {
                 alert("User exists, wrong password");
+                // Choco: Changed to "The password is wrong"?
             }
             else {alert("User is not in database");}
+            // Choco: Changed to "The username is wrong"?
         }
     }
 }
