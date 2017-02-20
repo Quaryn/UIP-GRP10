@@ -64,7 +64,7 @@ function Create2DArray(rows) {
 // Could add an option to only add if the inventory is higher than a certain amount
 function getBeers() {
     var beers = [];
-    var response = JSON.parse(HTTPGetRequest(inventory_get));
+    var response = JSON.parse(HTTPGetRequest("action=inventory_get"));
     for (var i = 0; i < response["payload"].length; i++) {
         // if (response["payload"][i]["count"] > 5)
         beers.push(response["payload"][i]["beer_id"]);
@@ -80,7 +80,7 @@ function getDetailedBeers() {
     // detailedBeers[0][3] will access first row, fourth column
     var detailedBeers = Create2DArray(beers.length);
     for (var i = 0; i < beers.length; i++) {
-        var response = JSON.parse(HTTPGetRequest("beer_data_get&beer_id=" + beers[i].toString()));
+        var response = JSON.parse(HTTPGetRequest("action=beer_data_get&beer_id=" + beers[i].toString()));
         detailedBeers[i][0] = response["payload"][i]["nr"];
         detailedBeers[i][1] = response["payload"][i]["artikelid"];
         detailedBeers[i][2] = response["payload"][i]["varnummer"];
@@ -176,7 +176,7 @@ function addPurchase(beerarray, user) {
         var beer_id = beerarray[i][0];
         var amt = beerarray[i][1];
         for (var i = 0; i < amt; i++) {
-            HTTPGetRequest("purchases_append&beer_id=" + beer_id + "&username=" + user.uname + "&password=" + user.pword);
+            HTTPGetRequest("action=purchases_append&beer_id=" + beer_id + "&username=" + user.uname + "&password=" + user.pword);
         }
     }
 }
