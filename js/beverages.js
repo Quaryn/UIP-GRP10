@@ -68,24 +68,53 @@ function HTTPGetRequest(theAction) {
     }
 }
 
-// Will return an array that where each item contains a beer. Can be further used to look at each beer_id.
+// To be used below
+function Create2DArray(rows) {
+    var arr = [];
+    for (var i=0;i<rows;i++) {
+        arr[i] = [];
+    }
+    return arr;
+}
+
+// Will return an array that where each item contains a beer_id. This is only used to use in another function to get
+// more detailed info about each beer.
+// Could add an option to only add if the inventory is higher than a certain amount
 function getBeers() {
     var beers = [];
-    var response = HTTPGetRequest(inventory_get);
+    var response = JSON.parse(HTTPGetRequest(inventory_get));
     for (var i = 0; i < response["payload"].length; i++) {
-        beers.push(response["payload"][i]);
+        // if (response["payload"][i]["count"] > 5)
+        beers.push(response["payload"][i]["beer_id"]);
     }
     return beers;
 }
 
+
 // For each item in getBeers, get the more detailed version of the beer.
 function getDetailedBeers() {
-    var beers = getBeers();
-    var detailedBeers = [];
+    var beers = getBeers(); // An array containing beer_id's
+    // We want one row for each beer_id, no need to specify columns.
+    // detailedBeers[0][3] will access first row, fourth column
+    var detailedBeers = Create2DArray(beers.length);
     for (var i = 0; i < beers.length; i++) {
-        var response = HTTPGetRequest("beer_data_get&beer_id=" + beers[i]["beer_id"]);
-        detailedBeers.push(response["payload"][i]);
+        var response = JSON.parse(HTTPGetRequest("beer_data_get&beer_id=" + beers[i].toString()));
+        detailedBeers[i][0] = response["payload"][i]["nr"];
+        detailedBeers[i][1] = response["payload"][i]["artikelid"];
+        detailedBeers[i][2] = response["payload"][i]["varnummer"];
+        detailedBeers[i][3] = response["payload"][i]["namn"] + " " + response["payload"][i]["namn2"];
+        detailedBeers[i][4] = response["payload"][i]["prisinklmoms"];
+        detailedBeers[i][5] = response["payload"][i]["volymiml"];
+        detailedBeers[i][6] = response["payload"][i]["varugrupp"];
+        detailedBeers[i][7] = response["payload"][i]["forpackning"];
+        detailedBeers[i][8] = response["payload"][i]["forslutning"];
+        detailedBeers[i][9] = response["payload"][i]["ursprung"];
+        detailedBeers[i][10] = response["payload"][i]["ursprunglandnamn"];
+        detailedBeers[i][11] = response["payload"][i]["producent"];
+        detailedBeers[i][12] = response["payload"][i]["leverantor"];
+        detailedBeers[i][13] = response["payload"][i]["alkoholhalt"];
     }
+    return detailedBeers;
 }
 
 // Sort into different arrays, if it's beer or wine, white or red etc.
@@ -93,46 +122,60 @@ function getDetailedBeers() {
 // "Öl, Ljus lager"
 // "Öl, Ale"
 // "Öl, Porter och Stout"
-// "Alkoholfritt, Öl"
+// "Alkoholfritt, Öl" maybe other alcfree, so bind them together
 // "Vitt vin, .."
 // "Rött vin, .."
 // "Cider, .."
 
 function sortBeverageByType () {
     var detailedBeers = getDetailedBeers();
+    var len = detailedBeers.length;
+    var lagers = Create2DArray(len);
+    var ales = Create2DArray(len);
+    var porterStout = Create2DArray(len);
+    var alcFree = Create2DArray(len);
+    var whiteWine = Create2DArray(len);
+    var redWine = Create2DArray(len);
+    var ciders = Create2DArray(len);
+    var otherBeverages = Create2DArray(len);
 
-    var lagers = [];
-    var ales = [];
-    var porterStout = [];
-    var alcFreeBeer = [];
-    var whiteWine = [];
-    var redWine = [];
-    var otherBeverages = [];
-
-    for (var i = 0; i < detailedBeers.length; i++) {
-        var current = detailedBeers[i]]
-        if (current["varugrupp"] == "Öl, Ljus lager") {
-            lagers.push(current);
+    for (var i = 0; i < len; i++) {
+        var type = detailedBeers[i][6]
+        var temp = 0;
+        if (type == "Öl, Ljus lager") {
+            temp = lagers.length;
+            lagers[temp] = detailedBeers[i];
         }
-        else if (current["varugrupp"] == "Öl, Ale") {
-            ales.push(current);
+        else if (type == "Öl, Ale") {
+            temp = ales.length;
+            ales[temp] = detailedBeers[i]
         }
-        else if (current["varugrupp"] == "Öl, Porter och Stout") {
-            porterStout.push(current);
+        else if (type == "Öl, Porter och Stout") {
+            temp = porterStout.length;
+            porterStout[temp] = detailedBeers[i];
         }
-        else if (current["varugrupp"] == "Alkoholfritt, Öl") {
-            alcFreeBeer.push(current);
+        else if (type.substring(0,11) == "Alkoholfritt") {
+            temp = alcFree.length;
+            alcFree[temp] = detailedBeers[i];
         }
-        else if (current["varugrupp"].substring(0,7) == "Vitt vin") {
-            whiteWine.push(current);
+        else if (type.substring(0,7) == "Vitt vin") {
+            temp = whiteWine.length;
+            whiteWine[temp] = detailedBeers[i];
         }
-        else if (current["varugrupp"].substring(0,7) == "Rött vin") {
-            redWine.push(current);
+        else if (type.substring(0,7) == "Rött vin") {
+            temp = redWhine.length;
+            redWhine[temp] = detailedBeers[i];
+        }
+        else if (type.substring(0,4) == "Cider") {
+            temp = ciders.length;
+            ciders[temp] = detailedBeers[i];
         }
         else {
-            otherBeverages.push(current);
+            temp = otherBeverages.length;
+            otherBeverages[temp] = detailedBeers[i];
         }
-
-        // Now the question is how to get these arrays to the site.
     }
+
+    // Now we just need to get these arrays to the site
+
 }
