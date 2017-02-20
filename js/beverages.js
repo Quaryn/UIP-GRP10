@@ -48,25 +48,7 @@ function Beverage(name1, name2, sbl_price, pub_price, beer_id, count, price) {
 
 
 }
-//This will make a HTTP request, where we request to get the info from URL
-//true-parameter makes it asynchronous
-function HTTPGetRequest(theAction) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', theUrl, true);
-    xhr.send();
 
-    //processRequest handler is called when readystate changes.
-    xhr.addEventListener("readystatechange", processRequest, false);
-
-    xhr.onreadystatechange = processRequest;
-
-    function processRequest(e) {
-        // rS == 4 & status == 200 => all is okay
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            return JSON.parse(xhr.responseText);
-        }
-    }
-}
 
 // To be used below
 function Create2DArray(rows) {
@@ -130,6 +112,8 @@ function getDetailedBeers() {
 function sortBeverageByType () {
     var detailedBeers = getDetailedBeers();
     var len = detailedBeers.length;
+
+    // Not sure how to get a good length on all arrays. Maybe temporary arrays, then make new ones with correct length?
     var lagers = Create2DArray(len);
     var ales = Create2DArray(len);
     var porterStout = Create2DArray(len);
@@ -175,6 +159,7 @@ function sortBeverageByType () {
             otherBeverages[temp] = detailedBeers[i];
         }
     }
+
 
     // Now we just need to get these arrays to the site
 
