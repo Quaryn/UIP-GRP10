@@ -45,7 +45,7 @@ function userInDB(uname) {
             return true;
         }
     }
-    else {return false};
+    return false;
 }
 
 //{"user_id" : "107","credentials" : "3","password" : "d41d8cd98f00b204e9800998ecf8427e","username" : "",

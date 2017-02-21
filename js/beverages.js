@@ -36,7 +36,7 @@
 // "producent" : "Reh Kendermann","leverantor" : "Hermansson & Co AB","argang" : "2013","provadargang" : "2013",
 // "alkoholhalt" : "8.5%","modul" : "","sortiment" : "FS","ekologisk" : "0","koscher" : "0"}]}
 
-function Beverage(nr, artid, vnr, pname, price, volume, pgroup, container, seal, origin, originCountry, producer, distributor, alcohol) {
+function beverage(nr, artid, vnr, pname, price, volume, pgroup, container, seal, origin, originCountry, producer, distributor, alcohol) {
     this.nr = nr;
     this.artid = artid;
     this.vnr = vnr;
@@ -55,14 +55,14 @@ function Beverage(nr, artid, vnr, pname, price, volume, pgroup, container, seal,
 }
 
 
-// Don't know if we need it anymore
-/*function Create2DArray(rows) {
+// We use it here and user.js
+function Create2DArray(rows) {
     var arr = [];
     for (var i=0;i<rows;i++) {
         arr[i] = [];
     }
     return arr;
-}*/
+}
 
 // Will return an array that where each item contains a beer_id. This is only used to use in another function to get
 // more detailed info about each beer.
@@ -109,7 +109,7 @@ function getDetailedBeers() {
         var distributor = response["payload"][i]["leverantor"];
         var alcohol = response["payload"][i]["alkoholhalt"];
 
-        var bev = new Beverage(nr,artnr,vnr,pname,price,volume,pgroup,container,seal,origin,originCountry,producer,distributor,alcohol);
+        var bev = new beverage(nr,artnr,vnr,pname,price,volume,pgroup,container,seal,origin,originCountry,producer,distributor,alcohol);
         detailedBeers.push(bev);
     }
     return detailedBeers;
@@ -129,8 +129,7 @@ function getDetailedBeers() {
 function sortBeverageByType () {
     var detailedBeers = getDetailedBeers();
     var len = detailedBeers.length;
-
-    // Not sure how to get a good length on all arrays. Maybe temporary arrays, then make new ones with correct length?
+    
     var lagers = [];
     var ales = [];
     var porterStout = [];
