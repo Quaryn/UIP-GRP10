@@ -1,0 +1,81 @@
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
+
+header {
+  height: 100px;
+	width: 100%;
+	background-color: #246ee5;
+	outline: 0;
+	margin: 0 auto;
+	padding: 0;
+	border-bottom: 2px solid;
+	border-color: #000000;
+	font-color: #ffffff;
+}
+
+body {
+	font-family: "Droid Serif", sans-serif;
+	font-size: 12pt;
+}
+
+a, strong, em {
+	color: #0099ff;
+}
+
+p.info,
+#login p {
+	width: 80%;
+	margin: lvw auto;
+}
+
+input[type="number"] {
+	width: 1.7em;
+	height: 1.7em;
+}
+
+.flex-header-container {
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.flex-header-buttons {
+  background-color: white;
+  width: 100px;
+  height: 30px;
+  border-style: 2px solid;
+  margin: 8px;
+}
+
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 400px;
+  background-color: lightgrey;
+}
+
+.order-drink {
+  background-color: aliceblue;
+  width: 80%;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  border-style: outset;
+	border-color: #000000;
+	font-color: #ffffff;
+  margin: 5px;
+}
+
+.order-tab {
+  background-color: beige;
+  width: 20%;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  border-style: outset;
+	border-color: #000000;
+	font-color: #ffffff;
+  margin: 5px;
+}
