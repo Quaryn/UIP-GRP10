@@ -1,7 +1,7 @@
 <?php
 
-  //If you are going to test this it is imperative that either 1. The code is placed in a folder named "UIP" in htdocs or
-  //2. The code is changed so that it reflects localhost.
+  //If you are going to test this it is imperative that either 1. The code is placed in a folder named "UIP" in htdocs (given you're working with xampp)
+  //or 2. The code is changed so that it reflects just being at localhost (that means changing from "/UIP" and changing "1" in the RouterController to 0.
 
   mb_internal_encoding("UTF-8");
 
