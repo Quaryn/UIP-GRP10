@@ -23,3 +23,9 @@ function HTTPGetRequest(theAction) {
 
     return jVar;
 }
+
+//just returns the payload from httpgetrequest
+function getDrinks() {
+    var response = HTTPGetRequest("&action=inventory_get");
+    return response.payload;
+}
