@@ -113,3 +113,19 @@ li a {
 li a:hover {
 	background: #444;
 }
+
+#secondary .widget-title {
+	margin: 0;
+	font-size: 22px;
+	background: #eee;
+	padding: 10px;
+	cursor: pointer;
+	width: 250px;
+}
+#secondary .widget .widget-content {
+	display: none;
+}
+#secondary .widget.active .widget-title, #secondary .widget.active ul {
+	background: #666;
+	color: #fff;
+}
