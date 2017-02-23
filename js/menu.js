@@ -45,4 +45,16 @@ function displayItems(){
 
 function indexPageLoaded() {
     displayItems();
+    panels();
+}
+
+function panels() {
+
+    (function ($) {
+        $("#secondary").on('click', '.widget-title', function (e) {
+            $(this).next('.widget-content').toggle(200);
+            $(this).parents('.widget').toggleClass('active');
+        });
+    })(jQuery);
+
 }
