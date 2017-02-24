@@ -1,6 +1,7 @@
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
 
+
 header {
   height: 100px;
 	width: 100%;
@@ -16,6 +17,9 @@ header {
 body {
 	font-family: "Droid Serif", sans-serif;
 	font-size: 12pt;
+	background-image: url("images/Ocean.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
 }
 
 a, strong, em {

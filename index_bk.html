@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="eng">
+	<head>
+		<title>Flying Dutchman</title>
+		<meta charset="utf-8" name="viewport" content="width=device-width, intial-scale=1.0"/>
+
+		<link rel="stylesheet" type="text/css" href="document.css">
+
+		<script src="js/translate.js">
+			docLoaded(indexPageLoaded);
+		</script>
+		<script src="js/beverages.js"></script>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/httpRequests.js"></script>
+		<script src="js/registerUser.js"></script>
+	</head>
+	<body>
+
+		<header>
+			<h1>Flying Dutchman</h1>
+		</header>
+
+		
+
+		<main>
+			<h2>Welcome!</h2>
+
+
+
+			<ul>
+				<!-- <input type="checkbox" name="beer" value="falcon"></input> -->
+				<li>Falcon<input type="number" name="fal" min="0" max="10" step="1" value="0"></li>
+				<li>Brooklyn Lager<input type="number" name="bl" min="0" max="10" step="1" value="0"></li>
+				<li>Heineken<input type="number" name="hein" min="0" max="10" step="1" value="0"></li>
+				<li>Smålands<input type="number" name="sma" min="0" max="10" step="1" value="0"></li>
+
+			</ul>
+			<!--
+			<p>
+				<label for="Beer">Beer</label><br>
+				<select id="Beer" name="beer">
+					<option>Falcon</option>
+					<option>Brooklyn Lager</option>
+					<option>Heineken</option>
+					<option>Smålands</option>
+				</select>
+			</p>
+			-->
+
+			<!-- type=checkbox for multiple -->
+			<form action="">
+				<input type="radio" name="tablenr" value="1" checked>Table 1</input>
+				<input type="radio" name="tablenr" value="2">Table 2</input>
+				<input type="radio" name="tablenr" value="2">Table 3</input>
+				<input type="radio" name="tablenr" value="2">Table 4</input>
+			</form>
+
+			<button type="submit">Order</button>
+
+		</main>
+		
+		<hr>
+
+		<footer>
+			<center>
+				<p>Contact me? Nah, don't think so</p>
+			</center>
+		</footer>
+	</body>
+</html>

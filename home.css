@@ -1,0 +1,160 @@
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
+
+header {
+  	background-color: #848482;
+	background-size: cover;
+	outline: 0;
+	border-bottom: 1px solid;
+	border-color: lightgray;
+	color: darkorange;
+	height: 50px;
+}
+
+input[name=search] {
+	width: 200px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	background-color: #848482;
+	margin-left: 75%;
+
+
+
+}
+
+body {
+	font-family: "Droid Serif", sans-serif;
+	font-size: 12pt;
+	background-color: #848482;
+}
+
+a, strong, em {
+	color: #0099ff;
+}
+
+div.new  {
+	grid-area: 1/2/2/3 ;
+}
+
+p.info,
+#login p {
+	width: 80%;
+	margin: lvw auto;
+}
+
+input[type="number"] {
+	width: 1.7em;
+	height: 1.7em;
+}
+
+.flex-header-container {
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.flex-header-buttons {
+  background-color: white;
+  width: 100px;
+  height: 30px;
+  border-style: 2px solid;
+  margin: 8px;
+}
+
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 400px;
+  background-color: lightgrey;
+}
+
+.order-drink {
+  background-color: aliceblue;
+  width: 80%;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  border-style: outset;
+	border-color: #000000;
+	font-color: #ffffff;
+  margin: 5px;
+}
+
+.order-tab {
+  background-color: beige;
+  width: 20%;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  border-style: outset;
+	border-color: #000000;
+	font-color: #ffffff;
+  margin: 5px;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	background-color: #f1f1f1;
+}
+
+li {
+	display: inline-block;
+	width: 300px;
+
+}
+
+li a {
+	position: relative;
+	display: block;
+	padding: .4em .4em .4em .8em;
+	*padding: .4em;
+	margin: .5em 0 .5em 2.5em;
+	background: #222;
+	color: #efefef;
+	text-decoration: none;
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}
+
+li a:hover {
+	background: #444;
+}
+
+#secondary .widget-title {
+	margin: 0;
+	font-size: 22px;
+	background: #eee;
+	padding: 10px;
+	cursor: pointer;
+	width: 250px;
+}
+#secondary .widget .widget-content {
+	display: none;
+}
+#secondary .widget.active .widget-title, #secondary .widget.active ul {
+	background: #666;
+	color: #fff;
+}
+/*grid*/
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
