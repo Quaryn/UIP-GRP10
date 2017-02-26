@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
 
 header {
-  	background-color: #848482;
+
 	background-size: cover;
 	outline: 0;
 	border-bottom: 1px solid;
@@ -11,15 +11,44 @@ header {
 	height: 50px;
 }
 
+h1 {
+	display: inline;
+}
+
+form {
+	float: right;
+	display: inline;
+	padding: 10px
+}
+
+
+ul.breadcrumb {
+	background-color: inherit;
+}
+ul.breadcrumb li {
+	background-color: inherit;
+;
+}
+ul.breadcrumb li a {
+	color: darkorange;
+	background-color: inherit;
+
+}
+
+
+
 input[name=search] {
 	width: 200px;
 	box-sizing: border-box;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	font-size: 16px;
-	background-color: #848482;
+
 	margin-left: 75%;
 
+.new {
+	position: col-6;
+}
 
 
 }
@@ -27,7 +56,8 @@ input[name=search] {
 body {
 	font-family: "Droid Serif", sans-serif;
 	font-size: 12pt;
-	background-color: #848482;
+	background-image: url("images/background.jpg")
+	
 }
 
 a, strong, em {
