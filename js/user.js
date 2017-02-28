@@ -39,9 +39,9 @@ function User(uid, cred, uname, pword, firstname, lastname, email, phone) {
 
 
 function userInDB(uname) {
-    var response = JSON.parse(HTTPGetRequest("action=user_get_all&username=ervtod&password=ervtod"));
-    for (var i = 0; i < response["payload"].length; i++) {
-        if (uname == response["payload"][i]["username"]) {
+    var response = HTTPGetRequest("&action=user_get_all&username=ervtod&password=ervtod");
+    for (var i = 0; i < response.payload.length; i++) {
+        if (uname == response.payload[i]["username"]) {
             return true;
         }
     }
@@ -54,26 +54,26 @@ function userInDB(uname) {
 
 function loginAttempt(uname, pword) {
     // Use admin ervtod to look through all users, and if there is any user that matches this attempt.
-    var response = JSON.parse(HTTPGetRequest("action=user_get_all&username=ervtod&password=ervtod"));
-    for (var i = 0; i < response["payload"].length; i++) {
-        if (uname == response["payload"][i]["username"] && pword == response["payload"][i]["password"]) {
+    var response = HTTPGetRequest("&action=user_get_all&username=ervtod&password=ervtod");
+    for (var i = 0; i < responsepayload.length; i++) {
+        if (uname == response.payload[i]["username"] && pword == response.payload[i]["password"]) {
             // Success
             var user = new User();
-            user.uid = response["payload"][i]["user_id"];
-            user.cred = response["payload"][i]["credentials"];
-            user.uname = response["payload"][i]["username"];
-            user.password = response["payload"][i]["password"];
-            user.firstname = response["payload"][i]["first_name"];
-            user.lastname = response["payload"][i]["last_name"];
-            user.email = response["payload"][i]["email"];
-            user.phone = response["payload"][i]["phone"];
+            user.uid = response.payload[i]["user_id"];
+            user.cred = response.payload[i]["credentials"];
+            user.uname = response.payload[i]["username"];
+            user.password = response.payload[i]["password"];
+            user.firstname = response.payload[i]["first_name"];
+            user.lastname = response.payload[i]["last_name"];
+            user.email = response.payload[i]["email"];
+            user.phone = response.payload[i]["phone"];
 
             // Keep track of user with localstorage
 
         }
         else {
             // Failure
-            if (uname == response["payload"][i]["username"]) {
+            if (uname == response.payload[i]["username"]) {
                 alert("User exists, wrong password");
                 // Choco: Changed to "The password is wrong"?
             }
@@ -85,10 +85,10 @@ function loginAttempt(uname, pword) {
 
 // {"type" : "iou_get", "payload" : [{"user_id" : "24","first_name" : "Ervin","last_name" : "Todd","assets" : "-1090"}]}
 function getDebt(user) {
-    var response = JSON.parse(HTTPGetRequest("action=iou_get&username=" + user.uname + "&password=" + user.pword));
+    var response = HTTPGetRequest("&action=iou_get&username=" + user.uname + "&password=" + user.pword);
     var listOfDebts = [];
-    for (var i = 0; i < response["payload"].length; i++) {
-        listOfDebts.push(response["payload"][i]["assets"]);
+    for (var i = 0; i < response.payload.length; i++) {
+        listOfDebts.push(response.payload[i]["assets"]);
     }
     return listOfDebts;
 }
@@ -96,15 +96,15 @@ function getDebt(user) {
 // {"type" : "payments_get_all", "payload" : [{"transaction_id" : "191","user_id" : "24","admin_id" : "25",
 // "amount" : "500","timestamp" : "2014-10-03 17:47:48"}]}
 function getPayments(user) {
-    var response = JSON.parse(HTTPGetRequest("action=payments_get&username=" + user.uname + "&password=" + user.pword));
-    var len = response["payload"].length;
+    var response = HTTPGetRequest("&action=payments_get&username=" + user.uname + "&password=" + user.pword);
+    var len = response.payload.length;
     var listOfPayments = Create2DArray(len);
     for (var i = 0; i < len; i++) {
-        listOfPayments[i][0] = response["payload"][i]["transaction_id"];
-        listOfPayments[i][1] = response["payload"][i]["user_id"];
-        listOfPayments[i][2] = response["payload"][i]["admin_id"];
-        listOfPayments[i][3] = response["payload"][i]["amount"];
-        listOfPayments[i][4] = response["payload"][i]["timestamp"];
+        listOfPayments[i][0] = response.payload[i]["transaction_id"];
+        listOfPayments[i][1] = response.payload[i]["user_id"];
+        listOfPayments[i][2] = response.payload[i]["admin_id"];
+        listOfPayments[i][3] = response.payload[i]["amount"];
+        listOfPayments[i][4] = response.payload[i]["timestamp"];
     }
     return listOfPayments;
 }
