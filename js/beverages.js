@@ -77,10 +77,10 @@ after checking the inventory, which will show available beers.*/
 // Choco: Agree with the threshold setting.
 function getBeers() {
     var beers = [];
-    var response = JSON.parse(HTTPGetRequest("action=inventory_get"));
-    for (var i = 0; i < response["payload"].length; i++) {
+    var response = HTTPGetRequest("&action=inventory_get");
+    for (var i = 0; i < response.payload.length; i++) {
         // if (response["payload"][i]["count"] > 5)
-        beers.push(response["payload"][i]["beer_id"]);
+        beers.push(response.payload[i]["beer_id"]);
     }
     return beers;
 }
@@ -92,22 +92,22 @@ function getDetailedBeers() {
     // We want one row for each beer_id, no need to specify columns.
     var detailedBeers = [];
     for (var i = 0; i < beers.length; i++) {
-        var response = JSON.parse(HTTPGetRequest("action=beer_data_get&beer_id=" + beers[i].toString()));
+        var response = HTTPGetRequest("&action=beer_data_get&beer_id=" + beers[i].toString());
 
-        var nr = response["payload"][i]["nr"];
-        var artnr = response["payload"][i]["artikelid"];
-        var vnr = response["payload"][i]["varnummer"];
-        var pname = response["payload"][i]["namn"] + " " + response["payload"][i]["namn2"];
-        var price = response["payload"][i]["prisinklmoms"];
-        var volume = response["payload"][i]["volymiml"];
-        var pgroup = response["payload"][i]["varugrupp"];
-        var container = response["payload"][i]["forpackning"];
-        var seal = response["payload"][i]["forslutning"];
-        var origin = response["payload"][i]["ursprung"];
-        var originCountry = response["payload"][i]["ursprunglandnamn"];
-        var producer = response["payload"][i]["producent"];
-        var distributor = response["payload"][i]["leverantor"];
-        var alcohol = response["payload"][i]["alkoholhalt"];
+        var nr = response.payload[i]["nr"];
+        var artnr = response.payload[i]["artikelid"];
+        var vnr = response.payload[i]["varnummer"];
+        var pname = response.payload[i]["namn"] + " " + response.payload[i]["namn2"];
+        var price = response.payload[i]["prisinklmoms"];
+        var volume = response.payload[i]["volymiml"];
+        var pgroup = response.payload[i]["varugrupp"];
+        var container = response.payload[i]["forpackning"];
+        var seal = response.payload[i]["forslutning"];
+        var origin = response.payload[i]["ursprung"];
+        var originCountry = response.payload[i]["ursprunglandnamn"];
+        var producer = response.payload[i]["producent"];
+        var distributor = response.payload[i]["leverantor"];
+        var alcohol = response.payload[i]["alkoholhalt"];
 
         var bev = new beverage(nr,artnr,vnr,pname,price,volume,pgroup,container,seal,origin,originCountry,producer,distributor,alcohol);
         detailedBeers.push(bev);
@@ -183,7 +183,7 @@ function addPurchase(beerarray, user) {
         var beer_id = beerarray[i][0];
         var amt = beerarray[i][1];
         for (var i = 0; i < amt; i++) {
-            HTTPGetRequest("action=purchases_append&beer_id=" + beer_id + "&username=" + user.uname + "&password=" + user.pword);
+            HTTPGetRequest("&action=purchases_append&beer_id=" + beer_id + "&username=" + user.uname + "&password=" + user.pword);
         }
     }
 }
