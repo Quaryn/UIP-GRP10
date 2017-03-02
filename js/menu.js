@@ -11,10 +11,23 @@ function docLoaded(fn) {
     }
 }
 
+
 function addToCart (item) {
 
 }
 
+
+function showInfo(beer_id) {
+
+    var response = getDetails(beer_id);
+
+    var output = "Namn: " + response[0]["namn"] + "<br>Pris: " + response[0]["prisinklmoms"] + "<br>Volym: " + response[0]["volymiml"] + "<br>Varugrupp: " + response[0]["varugrupp"] +
+            "<br>Förpackning: " + response[0]["forpackning"] + "<br>Ursprung: " + response[0]["ursprunglandnamn"] + "<br>Producent: " +
+        response[0]["producent"] + "<br>Alkoholhalt: " + response[0]["alkoholhalt"];
+
+    $('#beerInfo').html(output);
+
+}
 
 function displayItems(){
     var joutput = document.getElementById("mainmenu");
@@ -24,23 +37,22 @@ function displayItems(){
     var output = "";
 
 
-
-
     for (var key in jsonResponse) {
 
-     output += "<li><a href=''>" + JSON.stringify(jsonResponse[key].namn) +
+     output += "<li>" + "<a class='clickInfo' href='#' data-name =" + JSON.stringify(jsonResponse[key].beer_id) + ">" + JSON.stringify(jsonResponse[key].namn) +
          "<br>Price: " + JSON.stringify(jsonResponse[key].pub_price) +
-         "<br>Stock: " + JSON.stringify(jsonResponse[key].count) + "</li>";
+         "<br>Stock: " + JSON.stringify(jsonResponse[key].count) + "</a></li>";
 
      }
 
     $('#mainmenu').html(output)
 
-    /*$(function() {
+    $(".clickInfo").click(function (event) {
+        event.preventDefault();
 
-        $('#mainmenu').text(JSON.stringify(jsonResponse));
-    });*/
-
+        var id = $(this).attr("data-name");
+        showInfo(id);
+    })
 }
 
 function indexPageLoaded() {
