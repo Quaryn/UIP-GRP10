@@ -11,22 +11,20 @@ function docLoaded(fn) {
 
 // All items that should be translated should belong to same class, and their key and value should exist in translations.json
 function translate(lang) {
-    // Find the class, change it's language attribute to the new language
-    document.getElementById("language").lang = lang;
-    els = document.getElementsByClassName("language");
 
-    // Lookup in the JSON-file what the word is in a certain language
-    // json is the item we get from translations.json
+    // Read the data from our translation-file
     $.getJSON("translations.json", function( json ) {
 
         // the word in JSON we will look at, as for example one item will be
         // ['language']['sv']['Welcome','Welcome to the Flying Dutchman']
         words = json['language'][lang]
-        // for each item in translations.json, we will look up the correct word.
+
+
+        // for each item in 'lang'-specified language, we will use key to find the HTML element, and set the text to value.
         $.each(words, function (key, value) {
-            console.log(json['language'][lang]['Welcome']);
-            console.log(key);
-            $("." + key).text(value);
+
+            document.getElementById(key).innerText = value;
+
         });
 
     });
