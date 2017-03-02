@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="eng">
 	<head>
-		<title>Flying Dutchman</title>
+		<title id="banner">Flying Dutchman</title>
 		<meta charset="utf-8" name="viewport" content="width=device-width, intial-scale=1.0"/>
 
 		<link rel="stylesheet" type="text/css" href="document.css">
 
-		<script src="js/translate.js"></script>
+		<script src="js/transl.js"></script>
 		<script>docLoaded(indexPageLoaded);</script>
-		<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
 		<script src="js/httpRequests.js" type="text/javascript"></script>
 		<script src="js/beverages.js" type="text/javascript"></script>
 		<script src="js/user.js" type="text/javascript"></script>
@@ -16,14 +16,16 @@
 	<body>
 
 		<header>
-			<h1>Flying Dutchman</h1>
+			<h1 id="banner">Flying Dutchman</h1>
 		</header>
 
 		
 
 		<main>
-			<h2 id="welcome"></h2>
-			<p id="order"></p>
+			<h2 id="welcome">Welcome to The Flying Dutchman</h2>
+			<p id="order">Order</p>
+			<p id="beverages">Beverages</p>
+			<p id="login">Log in</p>
 
 
 
@@ -35,17 +37,6 @@
 				<li>Smålands<input type="number" name="sma" min="0" max="10" step="1" value="0"></li>
 
 			</ul>
-			<!--
-			<p>
-				<label for="Beer">Beer</label><br>
-				<select id="Beer" name="beer">
-					<option>Falcon</option>
-					<option>Brooklyn Lager</option>
-					<option>Heineken</option>
-					<option>Smålands</option>
-				</select>
-			</p>
-			-->
 
 			<!-- type=checkbox for multiple -->
 			<form action="">
@@ -56,8 +47,8 @@
 			</form>
 
 			<button type="submit">Order</button>
-			<button onclick="translate('sv')">Swedish!</button>
-			<button onclick="translate('eng')">English!</button>
+			<button onclick="transl('sv')">Swedish!</button>
+			<button onclick="transl('eng')">English!</button>
 			<button onclick="getDetailedBeers()"></button>
 
 		</main>
