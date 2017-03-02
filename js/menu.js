@@ -24,30 +24,9 @@ function showInfo(beer_id) {
     var output = "Namn: " + response[0]["namn"] + "<br>Pris: " + response[0]["prisinklmoms"] + "<br>Volym: " + response[0]["volymiml"] + "<br>Varugrupp: " + response[0]["varugrupp"] +
             "<br>Förpackning: " + response[0]["forpackning"] + "<br>Ursprung: " + response[0]["ursprunglandnamn"] + "<br>Producent: " +
         response[0]["producent"] + "<br>Alkoholhalt: " + response[0]["alkoholhalt"];
-
+    document.getElementById("beerInfo").style.display = "initial";
     $('#beerInfo').html(output);
 
-}
-
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-	 var id = $(this).attr("data-name");
-    ev.dataTransfer.setData("text", id);
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    
-    var data = ev.dataTransfer.getData("text");
-    var para = document.createElement("P");
-    //var response = getDetails(data);
-    //var output = "Namn: " + response[0]["namn"];
-    var t = document.createTextNode(data);
-    para.appendChild(t);
-    ev.target.appendChild(para); 	
 }
 
 function displayItems(){
@@ -60,7 +39,7 @@ function displayItems(){
 
     for (var key in jsonResponse) {
 
-     output += "<li>" + "<a class='clickInfo' href='#' data-name =" + JSON.stringify(jsonResponse[key].beer_id) + "draggable='true' ondragstart='drag(event)' >" + JSON.stringify(jsonResponse[key].namn) +
+     output += "<li>" + "<a class='clickInfo' href='#' data-name =" + JSON.stringify(jsonResponse[key].beer_id) + ">" + JSON.stringify(jsonResponse[key].namn) +
          "<br>Price: " + JSON.stringify(jsonResponse[key].pub_price) +
          "<br>Stock: " + JSON.stringify(jsonResponse[key].count) + "</a></li>";
 
