@@ -3,13 +3,13 @@
 
 
 header {
-  height: 100px;
+  height: 200px;
 	width: 100%;
 	background-color: #246ee5;
 	outline: 0;
 	margin: 0 auto;
 	padding: 0;
-  box-shadow: 5px 5px 5px #000000;
+        box-shadow: 5px 5px 5px #000000;
 	font-color: #ffffff;
 }
 
@@ -54,16 +54,26 @@ input[type="number"] {
 .flex-container {
   display: -webkit-flex;
   display: flex;
-  -webkit-justify-content: center;
-  justify-content: center;
+  -webkit-justify-content: left;
+  justify-content: left;
+  width: 100%;
+  height: 100%;
+  background-color: lightgrey;
+}
+.flex-container-aside {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: right;
+  justify-content: right;
   width: 100%;
   height: 100%;
   background-color: lightgrey;
 }
 
 .order-drink {
+  order: 3;
   background-color: aliceblue;
-  width: 80%;
+  width: 100%;
   -webkit-align-items: flex-start;
   align-items: flex-start;
   border-style: outset;
@@ -73,6 +83,7 @@ input[type="number"] {
 }
 
 .order-tab {
+  order: 2;
   background-color: beige;
   width: 20%;
   -webkit-align-items: flex-start;
@@ -80,6 +91,20 @@ input[type="number"] {
   border-style: outset;
 	border-color: #000000;
 	font-color: #ffffff;
+  margin: 5px;
+}
+
+.order-info {
+  order: 1;
+  background-color: beige;
+  position: fixed;
+  height: 400px;
+  width: 20%;
+  -webkit-align-items: flex-start;
+  align-items: center;
+  border-style: outset;
+  border-color: #000000;
+  font-color: #ffffff;
   margin: 5px;
 }
 
