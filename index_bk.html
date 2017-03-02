@@ -6,10 +6,8 @@
 
 		<link rel="stylesheet" type="text/css" href="document.css">
 
-		<script src="js/translate.js">
-			docLoaded(indexPageLoaded);
-		</script>
-
+		<script src="js/translate.js"></script>
+		<script>docLoaded(indexPageLoaded);</script>
 		<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
 		<script src="js/httpRequests.js" type="text/javascript"></script>
 		<script src="js/beverages.js" type="text/javascript"></script>
@@ -24,7 +22,8 @@
 		
 
 		<main>
-			<h2>Welcome!</h2>
+			<h2 id="welcome" class="language">Welcome</h2>
+			<p id="order" class="language">Order</p>
 
 
 
@@ -57,9 +56,10 @@
 			</form>
 
 			<button type="submit">Order</button>
-			<script type="text/javascript">
-				<button onclick="getDetailedBeers()"></button>
-			</script>
+			<button onclick="translate('sv')">Swedish!</button>
+			<button onclick="translate('eng')">English!</button>
+			<button onclick="getDetailedBeers()"></button>
+
 		</main>
 		
 		<hr>
