@@ -29,3 +29,8 @@ function getDrinks() {
     var response = HTTPGetRequest("&action=inventory_get");
     return response.payload;
 }
+
+function getDetails(beer_id) {
+    var response = HTTPGetRequest("&action=beer_data_get&beer_id=" + beer_id);
+    return response.payload;
+}
