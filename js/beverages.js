@@ -66,21 +66,16 @@ function Create2DArray(rows) {
 
 // Will return an array that where each item contains a beer_id. This is only used to use in another function to get
 // more detailed info about each beer.
-/* Choco: Did you mean that this is just a function for checking against the stock?
-If so, change the comment above to reflect this purpose.
-And it doesn't seem only used with the function getDetailedBeers ().
-When users load the menu page, it will return beers in the menu
-after checking the inventory, which will show available beers.*/
-// As it says in the comment above, this function is solely used to retrieve the beer_id's that exist. What you do
-// with this information can vary. So it shouldn't change.
 // Could add an option to only add if the inventory is higher than a certain amount
-// Choco: Agree with the threshold setting.
+
 function getBeers() {
     var beers = [];
     var response = HTTPGetRequest("&action=inventory_get");
     for (var i = 0; i < response.payload.length; i++) {
         // if (response["payload"][i]["count"] > 5)
-        beers.push(response.payload[i]["beer_id"]);
+        if (response.payload[i]["namn"] != "") {
+            beers.push(response.payload[i]["beer_id"]);
+        }
     }
     //displaySorted(beers);
     return beers;
