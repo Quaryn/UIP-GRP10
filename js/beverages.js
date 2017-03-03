@@ -36,7 +36,7 @@
 // "producent" : "Reh Kendermann","leverantor" : "Hermansson & Co AB","argang" : "2013","provadargang" : "2013",
 // "alkoholhalt" : "8.5%","modul" : "","sortiment" : "FS","ekologisk" : "0","koscher" : "0"}]}
 
-function beverage(nr, artid, vnr, pname, price, volume, pgroup, container, seal, origin, originCountry, producer, distributor, alcohol) {
+function Beverage(nr, artid, vnr, pname, price, volume, pgroup, container, seal, origin, originCountry, producer, distributor, alcohol) {
     this.nr = nr;
     this.artid = artid;
     this.vnr = vnr;
@@ -82,6 +82,7 @@ function getBeers() {
         // if (response["payload"][i]["count"] > 5)
         beers.push(response.payload[i]["beer_id"]);
     }
+    //displaySorted(beers);
     return beers;
 }
 
@@ -90,28 +91,38 @@ function getBeers() {
 function getDetailedBeers() {
     var beers = getBeers(); // An array containing beer_id's
     // We want one row for each beer_id, no need to specify columns.
+
     var detailedBeers = [];
     for (var i = 0; i < beers.length; i++) {
         var response = HTTPGetRequest("&action=beer_data_get&beer_id=" + beers[i].toString());
 
-        var nr = response.payload[i]["nr"];
-        var artnr = response.payload[i]["artikelid"];
-        var vnr = response.payload[i]["varnummer"];
-        var pname = response.payload[i]["namn"] + " " + response.payload[i]["namn2"];
-        var price = response.payload[i]["prisinklmoms"];
-        var volume = response.payload[i]["volymiml"];
-        var pgroup = response.payload[i]["varugrupp"];
-        var container = response.payload[i]["forpackning"];
-        var seal = response.payload[i]["forslutning"];
-        var origin = response.payload[i]["ursprung"];
-        var originCountry = response.payload[i]["ursprunglandnamn"];
-        var producer = response.payload[i]["producent"];
-        var distributor = response.payload[i]["leverantor"];
-        var alcohol = response.payload[i]["alkoholhalt"];
 
-        var bev = new beverage(nr,artnr,vnr,pname,price,volume,pgroup,container,seal,origin,originCountry,producer,distributor,alcohol);
-        detailedBeers.push(bev);
+
+        if (response.payload.length > 0) {
+
+
+
+            var nr = response.payload[0]["nr"];
+            var artnr = response.payload[0]["artikelid"];
+            var vnr = response.payload[0]["varnummer"];
+            var pname = response.payload[0]["namn"] + " " + response.payload[0]["namn2"];
+            var price = response.payload[0]["prisinklmoms"];
+            var volume = response.payload[0]["volymiml"];
+            var pgroup = response.payload[0]["varugrupp"];
+            var container = response.payload[0]["forpackning"];
+            var seal = response.payload[0]["forslutning"];
+            var origin = response.payload[0]["ursprung"];
+            var originCountry = response.payload[0]["ursprunglandnamn"];
+            var producer = response.payload[0]["producent"];
+            var distributor = response.payload[0]["leverantor"];
+            var alcohol = response.payload[0]["alkoholhalt"];
+
+            var bev = new Beverage(nr, artnr, vnr, pname, price, volume, pgroup, container, seal, origin, originCountry, producer, distributor, alcohol);
+            detailedBeers.push(bev);
+
+        }
     }
+
     return detailedBeers;
 }
 
@@ -127,6 +138,8 @@ function getDetailedBeers() {
 
 /*Choco: I don't understand the code below, could you explain in the meeting? Sorting based on string length?*/
 function sortBeverageByType () {
+
+
     var detailedBeers = getDetailedBeers();
     var len = detailedBeers.length;
     
@@ -167,6 +180,16 @@ function sortBeverageByType () {
         }
     }
 
+
+
+    displaySorted(lagers,"#beers");
+    displaySorted(ales, "#beers");
+    displaySorted(porterStout, "#beers");
+    displaySorted(alcFree, "#alcfrees");
+    displaySorted(whiteWine, "#wines");
+    displaySorted(redWine, "#wines");
+    displaySorted(ciders, "#ciders");
+    displaySorted(otherBeverages, "#others");
 
     // Now we just need to get these arrays to the site
 
