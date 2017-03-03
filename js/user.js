@@ -13,7 +13,7 @@ function User(uid, cred, uname, pword, firstname, lastname, email, phone) {
     this.phone = phone;
 }
 
-
+// In case we want to register a new user. In the future.
 // http://pub.jamaica-inn.net/fpdb/api.php?action=user_edit&new_username=johhul&new_password=johhul&first_name=johan&
 // last_name=hullberg&email=test@test.com&phone=999&username=ervtod&password=ervtod
 /*function registerUser(user) {
@@ -69,6 +69,9 @@ function loginAttempt(uname, pword) {
             user.phone = response.payload[i]["phone"];
 
             // Keep track of user with localstorage
+            localStorage.setItem("username",user.uname);
+            localStorage.setItem("password",user.password);
+            localStorage.setItem("credentials",user.cred);
 
         }
         else {
