@@ -72,6 +72,7 @@ function loginAttempt(uname, pword) {
             localStorage.setItem("username",user.uname);
             localStorage.setItem("password",user.password);
             localStorage.setItem("credentials",user.cred);
+            window.location.pathname = '/home.html'
 
         }
         else {
