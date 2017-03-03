@@ -14,12 +14,22 @@
 		<script src="js/httpRequests.js"></script>
 		<script src="js/user.js"></script>
 	</head>
+	<header>
+		<div style="top: 0px; float: right">
+			<img src="images/sweden.png" style="width:50px;height:50px;" onclick="transl('sv')" />
+			<img src="images/uk.png" style="width:50px;height:50px;" onclick="transl('eng')" />
+		</div>
+	</header>
 	<body>
 		<h1 class="col-12" id="banner">Flying Dutchman</h1>
 		<img src="images/Flying_Dutchman.png"/>
 		<a href="home.html"><button type="submit" href="home.html">Welcome in!</button></a>
 		<form action="home.html">
 			<input type="text submit" placeholder="VIP? Enter your personal number here.">
+
+			<input type="text" placeholder="Username" name="uname" required>
+			<input type="password" placeholder="Password" name="pword" required>
+			<button id="login" onclick="loginAttempt(uname, pword)">Log in</button>
 		</form>
 
 	</body>
