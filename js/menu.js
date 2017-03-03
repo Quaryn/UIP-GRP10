@@ -27,6 +27,27 @@ function showInfo(beer_id) {
 
 }
 
+function allowDrop(ev) {
+     ev.preventDefault();
+}
+
+function drag(ev) {
+     var id = ev.currentTarget.dataset.name
+     //var id = $(this).attr("data-name");
+     ev.dataTransfer.setData("text", id);
+}
+
+function drop(ev) {
+     ev.preventDefault();
+
+     var data = ev.dataTransfer.getData("text");
+     var para = document.createElement("P");
+     var response = getDetails(data);
+     var output = "Namn: " + response[0]["namn"];
+     var t = document.createTextNode(output);
+     para.appendChild(t);
+     ev.target.appendChild(para);
+}
 
 function displaySorted(sortedArray, place){
 
@@ -34,7 +55,7 @@ function displaySorted(sortedArray, place){
 
     for (var key in sortedArray) {
 
-        output += "<li>" + "<a class='clickInfo' href='#' data-name =" + sortedArray[key]["nr"] + ">" + sortedArray[key]["pname"] +
+        output += "<li>" + "<a class='clickInfo' href='#' data-name =" + sortedArray[key]["nr"] + " draggable='true' ondragstart='drag(event)'>" + sortedArray[key]["pname"] +
             "<br>Price: " + sortedArray[key]["price"] +  "</a></li>";
 
     }
