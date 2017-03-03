@@ -19,7 +19,7 @@ function showInfo(beer_id) {
 
 
     var output = "<b id='name'>Namn:</b> " + response[0]["namn"] + "<br><b id='price'>Pris:</b> " + response[0]["prisinklmoms"] + "<br><b id='volume'>Volym:</b> " + response[0]["volymiml"] + "<br><b id='group'>Varugrupp:</b> " + response[0]["varugrupp"] +
-            "<br><b id='container'>Förpackning:</b> " + response[0]["forpackning"] + "<br><b id='container'>Ursprung:</b> " + response[0]["ursprunglandnamn"] + "<br><b id='producer'>Producent:</b> " +
+            "<br><b id='container'>Förpackning:</b> " + response[0]["forpackning"] + "<br><b id='origin'>Ursprung:</b> " + response[0]["ursprunglandnamn"] + "<br><b id='producer'>Producent:</b> " +
         response[0]["producent"] + "<br><b id='alcohol'>Alkoholhalt:</b> " + response[0]["alkoholhalt"];
     document.getElementById("beerInfo").style.display = "initial";
 
