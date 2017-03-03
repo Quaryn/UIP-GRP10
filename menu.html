@@ -12,7 +12,7 @@
     <script>docLoaded(indexPageLoaded);</script>
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/beverages.js"></script>
-
+    <script src="js/transl.js"></script>
     <script src="js/httpRequests.js"></script>
     <script src="js/user.js"></script>
 </head>
@@ -21,7 +21,10 @@
 
 <header>
   <h1>Flying Dutchman</h1>
-
+    <div style="float: right">
+        <img src="images/sweden.png" style="width:50px;height:50px;" onclick="transl('sv')" />
+        <img src="images/uk.png" style="width:50px;height:50px;" onclick="transl('eng')" />
+    </div>
 <!-- Remove from here TO-->
 <style>
 #div1 {

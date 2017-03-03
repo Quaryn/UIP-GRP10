@@ -18,9 +18,9 @@ function showInfo(beer_id) {
     var response = getDetails(beer_id);
 
 
-    var output = "Namn: " + response[0]["namn"] + "<br>Pris: " + response[0]["prisinklmoms"] + "<br>Volym: " + response[0]["volymiml"] + "<br>Varugrupp: " + response[0]["varugrupp"] +
-            "<br>Förpackning: " + response[0]["forpackning"] + "<br>Ursprung: " + response[0]["ursprunglandnamn"] + "<br>Producent: " +
-        response[0]["producent"] + "<br>Alkoholhalt: " + response[0]["alkoholhalt"];
+    var output = "<b id='name'>Namn:</b> " + response[0]["namn"] + "<br><b id='price'>Pris:</b> " + response[0]["prisinklmoms"] + "<br><b id='volume'>Volym:</b> " + response[0]["volymiml"] + "<br><b id='group'>Varugrupp:</b> " + response[0]["varugrupp"] +
+            "<br><b id='container'>Förpackning:</b> " + response[0]["forpackning"] + "<br><b id='container'>Ursprung:</b> " + response[0]["ursprunglandnamn"] + "<br><b id='producer'>Producent:</b> " +
+        response[0]["producent"] + "<br><b id='alcohol'>Alkoholhalt:</b> " + response[0]["alkoholhalt"];
     document.getElementById("beerInfo").style.display = "initial";
 
     $('#beerInfo').html(output);

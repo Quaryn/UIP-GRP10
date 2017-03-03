@@ -14,12 +14,28 @@ var json = {"language" : {
             "order" : "Order",
             "beverages" : "Beverages",
             "login" : "Log in",
-            "banner" : "Flying Dutchman"},
+            "banner" : "Flying Dutchman",
+            "name" : "Name",
+            "price" : "Price",
+            "volume" : "Volume",
+            "group" : "Group",
+            "container" : "Container",
+            "origin" : "Origin",
+            "producer" : "Producer",
+            "alcohol" : "Alcohol"},
     "sv" : {"welcome" : "Välkommen till Flygande Holländaren",
             "order" : "Beställ",
             "beverages" : "Drycker",
             "login" : "Logga in",
-            "banner": "Flygande Holländaren"}}
+            "banner": "Flygande Holländaren",
+            "name" : "Namn",
+            "price" : "Pris",
+            "volume" : "Volym",
+            "group" : "Varugrupp",
+            "container" : "Förpackning",
+            "origin" : "Ursprung",
+            "producer" : "Producent",
+            "alcohol" : "Alkohol"}}
 };
 
 
