@@ -25,25 +25,14 @@
         <img src="images/sweden.png" style="width:50px;height:50px;" onclick="transl('sv')" />
         <img src="images/uk.png" style="width:50px;height:50px;" onclick="transl('eng')" />
     </div>
-<!-- Remove from here TO-->
-<style>
-#div1 {
-    width: 350px;
-    height: 150px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
-}
-</style>  
-  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-<!--Here. This is only a placeholder for a real shopping cart.-->  
-  
+
   <h1>Bar menu</h1>
 </header>
 
 <div class="flex-container"> <!-- puts down a large container for all to see, -->
 
 <aside id="secondary" class="col-md-3 col-sm-3 flex-container-aside"><div class="order-drink"> <!-- for some reason cannot press enter -->
-    <div class="row"> 
+    <div class="row">
         <!-- .widget STARTS -->
         <div class="widget">
             <div class="widget-inner">
@@ -117,11 +106,11 @@
 
                 </div>
             </div>
-        </div> </div> 
+        </div> </div>
         <!-- .widget ENDS -->
     </div><div id="beerInfo" class="order-info" style="display:none"></div>
-</aside> 
-  <div class="order-tab">
+</aside>
+  <div class="order-tab" ondrop="drop(event)" ondragover="allowDrop(event)">
     Your order here.
   </div>
 </div>

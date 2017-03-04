@@ -33,7 +33,6 @@ function allowDrop(ev) {
 
 function drag(ev) {
      var id = ev.currentTarget.dataset.name
-     //var id = $(this).attr("data-name");
      ev.dataTransfer.setData("text", id);
 }
 
