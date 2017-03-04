@@ -9,6 +9,7 @@ function docLoaded(fn) {
     }
 }
 
+// Dictionary
 var json = {"language" : {
     "eng" : {"welcome" : "Welcome to The Flying Dutchman",
             "order" : "Order",
@@ -47,7 +48,6 @@ function transl(lang) {
         // the word in JSON we will look at, as for example one item will be
         // ['language']['sv']['Welcome','Welcome to the Flying Dutchman']
         words = json['language'][lang];
-        //console.log(words);
 
         // for each item in 'lang'-specified language, we will use key to find the HTML element, and set the text to value.
         $.each(words, function (key, value) {
