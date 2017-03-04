@@ -30,8 +30,18 @@
 </header>
 
 <div class="flex-container"> <!-- puts down a large container for all to see, -->
+  <div class="order-tab" ondrop="drop(event)" ondragover="allowDrop(event)">
+    Your order here.
+    <div>
+      <button type="submit" onclick="orderDrink()">Payup!</button> <!-- Send in some sort of variable with the data added to the tab, maybe keep track of the order array in the dropoff thingie -->
+      <button type="submit" onclick="backStepOrder('sv')>Undo</button>
+      <button type="submit" onclick="forwardStepOrder('sv')>Redo</button>
+    </div>
 
-<aside id="secondary" class="col-md-3 col-sm-3 flex-container-aside"><div class="order-drink"> <!-- for some reason cannot press enter -->
+  </div>
+
+<aside id="secondary" class="col-md-3 col-sm-3 flex-container-aside">
+  <div class="order-drink"> <!-- for some reason cannot press enter -->
     <div class="row">
         <!-- .widget STARTS -->
         <div class="widget">
@@ -108,11 +118,10 @@
             </div>
         </div> </div>
         <!-- .widget ENDS -->
+
     </div><div id="beerInfo" class="order-info" style="display:none"></div>
 </aside>
-  <div class="order-tab" ondrop="drop(event)" ondragover="allowDrop(event)">
-    Your order here.
-  </div>
+
 </div>
 
   <footer>

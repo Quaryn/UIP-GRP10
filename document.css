@@ -83,7 +83,7 @@ input[type="number"] {
 }
 
 .order-tab {
-  order: 2;
+  order: 1;
   background-color: beige;
   width: 20%;
   -webkit-align-items: flex-start;
@@ -95,7 +95,6 @@ input[type="number"] {
 }
 
 .order-info {
-  order: 1;
   background-color: beige;
   position: fixed;
   height: 400px;
