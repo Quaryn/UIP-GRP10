@@ -37,15 +37,18 @@ function drag(ev) {
 }
 
 function drop(ev) {
-     ev.preventDefault();
+     if (ev.currentTarget.className == "order-tab")
+     {
+       ev.preventDefault();
 
-     var data = ev.dataTransfer.getData("text");
-     var para = document.createElement("P");
-     var response = getDetails(data);
-     var output = "Namn: " + response[0]["namn"];
-     var t = document.createTextNode(output);
-     para.appendChild(t);
-     ev.target.appendChild(para);
+       var data = ev.dataTransfer.getData("text");
+       var para = document.createElement("P");
+       var response = getDetails(data);
+       var output = "ID: " + data + " Namn: " + response[0]["namn"] + " Pris: " + response[0]["prisinklmoms"];
+       var t = document.createTextNode(output);
+       para.appendChild(t);
+       ev.target.appendChild(para);
+   }
 }
 
 function displaySorted(sortedArray, place){
