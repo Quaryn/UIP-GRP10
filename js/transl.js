@@ -23,7 +23,9 @@ var json = {"language" : {
             "container" : "Container",
             "origin" : "Origin",
             "producer" : "Producer",
-            "alcohol" : "Alcohol"},
+            "alcohol" : "Alcohol"
+            "username" : "Username",
+            "password" : "Password"},
     "sv" : {"welcome" : "Välkommen till Flygande Holländaren",
             "order" : "Beställ",
             "beverages" : "Drycker",
@@ -36,7 +38,9 @@ var json = {"language" : {
             "container" : "Förpackning",
             "origin" : "Ursprung",
             "producer" : "Producent",
-            "alcohol" : "Alkohol"}}
+            "alcohol" : "Alkohol",
+            "username" : "Användarnamn",
+            "password" : "Lösenord"}}
 };
 
 

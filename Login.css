@@ -17,7 +17,7 @@ img {
 	margin-left: 10%;
 }
 
-button {
+.enterButton {
 	width: 200px;
 	height: 50px;
 	background-color: lightgray;
@@ -31,7 +31,7 @@ button {
 
 }
 
-input {
+.vipInput {
 	width: 400px;
 	height: 50px;
 	background-color: transparent;
@@ -65,4 +65,17 @@ body {
 	background-image: url("images/Ocean.jpg");
 	background-repeat:no-repeat;
 	background-size:cover;
+}
+
+input[type=button]{
+	font-size: 16px;
+	background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
+	border: 1px solid #e5a900;
+	color: #4E4D4B;
+	font-weight: bold;
+	cursor: pointer;
+	width: 20%;
+	border-radius: 5px;
+	padding: 10px 0;
+	outline:none;
 }

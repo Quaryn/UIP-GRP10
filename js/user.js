@@ -52,11 +52,17 @@ function userInDB(uname) {
 // "first_name" : "","last_name" : "","email" : "","phone" : ""}
 // I think credentials is the role of the user, 0 seems to be admin, 3 regular user. Can only find 0 & 3.
 
-function loginAttempt(uname, pword) {
+function loginAttempt() {
+    var uname = document.getElementById("username").value;
+    var pword = document.getElementById("password").value;
+    var md5pword = md5(pword);
+    //console.log(uname);
+    //console.log(md5pword);
     // Use admin ervtod to look through all users, and if there is any user that matches this attempt.
     var response = HTTPGetRequest("&action=user_get_all&username=ervtod&password=ervtod");
-    for (var i = 0; i < responsepayload.length; i++) {
-        if (uname == response.payload[i]["username"] && pword == response.payload[i]["password"]) {
+
+    for (var i = 0; i < response.payload.length; i++) {
+        if (uname == response.payload[i]["username"] && md5pword == response.payload[i]["password"]) {
             // Success
             var user = new User();
             user.uid = response.payload[i]["user_id"];
@@ -68,13 +74,19 @@ function loginAttempt(uname, pword) {
             user.email = response.payload[i]["email"];
             user.phone = response.payload[i]["phone"];
 
-            // Keep track of user with localstorage
+            // Keep track of user with localstorage and move to next page
             localStorage.setItem("username",user.uname);
             localStorage.setItem("password",user.password);
             localStorage.setItem("credentials",user.cred);
-            window.location.pathname = '/home.html'
+            //window.location.pathname = '/menu.html';
+            window.location = 'http://localhost:63342/UIP-GRP10/menu.html?_ijt=5886dcj0llaoik11mq9m4lgu17';
+            /*console.log(localStorage.getItem("username"));
+            console.log(localStorage.getItem("password"));
+            console.log(localStorage.getItem("credentials"));*/
+
 
         }
+        /* This made an alert for each user in the database, heh
         else {
             // Failure
             if (uname == response.payload[i]["username"]) {
@@ -83,7 +95,7 @@ function loginAttempt(uname, pword) {
             }
             else {alert("User is not in database");}
             // Choco: Changed to "The username is wrong"?
-        }
+        }*/
     }
 }
 
