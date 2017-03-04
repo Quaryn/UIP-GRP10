@@ -2,13 +2,9 @@
 <html lang="en">
 <head>
     <title>Flying Dutchman</title>
-    <meta charset="utf-8" />
-
-    <link rel="stylesheet" type="text/css" href="document.css">
-
-    <script src="js/menu.js">
-    </script>
-
+    <meta charset="utf-8" name="viewport" content="width=device-width, intial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="menu.css">
+    <script src="js/menu.js"></script>
     <script>docLoaded(indexPageLoaded);</script>
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/beverages.js"></script>
@@ -18,28 +14,25 @@
 </head>
 
 <body>
-
 <header>
-  <h1>Flying Dutchman</h1>
-    <div style="float: right">
-        <img src="images/sweden.png" style="width:50px;height:50px;" onclick="transl('sv')" />
-        <img src="images/uk.png" style="width:50px;height:50px;" onclick="transl('eng')" />
-    </div>
+<div>
+    <h1>Flying Dutchman</h1>
+    <img class="translate" src="images/sweden.png" style="width:50px;height:50px;" onclick="transl('sv')" />
+    <img class="translate" src="images/uk.png" style="width:50px;height:50px;" onclick="transl('eng')" />
+</div>
 
-  <h1>Bar menu</h1>
 </header>
-
-<div class="flex-container"> <!-- puts down a large container for all to see, -->
-  <div class="order-tab" ondrop="drop(event)" ondragover="allowDrop(event)">
+<!--<h1 id="barmenu">Bar menu</h1>-->
+<div class="order-tab" ondrop="drop(event)" ondragover="allowDrop(event)">
     Your order here.
-    <div>
-      <button type="submit" onclick="orderDrink()">Payup!</button> <!-- Send in some sort of variable with the data added to the tab, maybe keep track of the order array in the dropoff thingie -->
-      <button type="submit" onclick="backStepOrder('sv')>Undo</button>
-      <button type="submit" onclick="forwardStepOrder('sv')>Redo</button>
+    <div id="orderbuttons">
+        <button type="submit" onclick="orderDrink()">Payup!</button> <!-- Send in some sort of variable with the data added to the tab, maybe keep track of the order array in the dropoff thingie -->
+        <button type="submit" onclick="backStepOrder('sv')">Undo</button>
+        <button type="submit" onclick="forwardStepOrder('sv')">Redo</button>
     </div>
 
-  </div>
-
+</div>
+<div class="flex-container"> <!-- puts down a large container for all to see, -->
 <aside id="secondary" class="col-md-3 col-sm-3 flex-container-aside">
   <div class="order-drink"> <!-- for some reason cannot press enter -->
     <div class="row">
@@ -50,13 +43,11 @@
 
                 <div id="code" class="widget-content">
                     <div id="beers">
-
-                    </div>
-
                     </div>
                 </div>
             </div>
         </div>
+    </div>
         <!-- .widget ENDS -->
         <!-- .widget STARTS -->
         <div class="widget">
@@ -84,7 +75,7 @@
 
                     </div>
 
-                     </div>
+                </div>
 
             </div>
         </div>
@@ -116,16 +107,12 @@
 
                 </div>
             </div>
-        </div> </div>
+        </div>
+  </div>
         <!-- .widget ENDS -->
-
-    </div><div id="beerInfo" class="order-info" style="display:none"></div>
 </aside>
-
 </div>
-
-  <footer>
-  </footer>
+<div id="beerInfo" class="order-info" style="display:none"></div>
 
 </body>
 </html>

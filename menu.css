@@ -1,0 +1,63 @@
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
+
+
+header {
+    /*box-shadow: 5px 5px 5px #000000;*/
+	background-size: cover;
+	outline: 0;
+	border-bottom: 1px solid;
+	border-color: lightgray;
+	color: darkorange;
+	height: 50px;
+}
+
+h1 {
+	display: inline;
+}
+
+.translate {
+	float: right;
+	display: inline;
+	padding-right: 1%;
+
+}
+
+body {
+	font-family: "Droid Serif", sans-serif;
+	font-size: 12pt;
+	background-color: #222222;
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+#barmenu {
+	position: absolute;
+	right: 50%
+}
+
+.order-tab {
+	position: absolute;
+	right: 10%;
+	order: 1;
+	background-color: white;
+	width: 20%;
+	height: 80%;
+	border-style: outset;
+	border-color: #000000;
+	font-color: #ffffff;
+	margin: 5px;
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
+}
+
+#orderbuttons {
+	position: absolute;
+	bottom: 5px;
+	left: 40px;
+}
+
+.flex-container {
+	position: absolute;
+	left: 10%;
+}
