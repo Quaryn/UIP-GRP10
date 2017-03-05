@@ -10,9 +10,11 @@ function docLoaded(fn) {
 
     }
 }
-
-
-
+/* Following can be used to place the order. Should be saved from the login.
+localStorage.getItem("username");
+localStorage.getItem("password");
+localStorage.getItem("credentials");
+*/
 function showInfo(beer_id) {
 
     var response = getDetails(beer_id);

@@ -30,11 +30,11 @@ body {
 	background-repeat:no-repeat;
 	background-size:cover;
 }
-
+/*
 #barmenu {
 	position: absolute;
 	right: 50%
-}
+}*/
 
 .order-tab {
 	position: absolute;
@@ -51,7 +51,7 @@ body {
 	align-items: flex-start;
 }
 
-#orderbuttons {
+.orderbuttons {
 	position: absolute;
 	bottom: 5px;
 	left: 40px;

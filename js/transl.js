@@ -12,7 +12,7 @@ function docLoaded(fn) {
 // Dictionary
 var json = {"language" : {
     "eng" : {"welcome" : "Welcome to The Flying Dutchman",
-            "order" : "Order",
+            "order" : "Your order here",
             "beverages" : "Beverages",
             "login" : "Log in",
             "banner" : "Flying Dutchman",
@@ -23,11 +23,11 @@ var json = {"language" : {
             "container" : "Container",
             "origin" : "Origin",
             "producer" : "Producer",
-            "alcohol" : "Alcohol"
+            "alcohol" : "Alcohol",
             "username" : "Username",
             "password" : "Password"},
     "sv" : {"welcome" : "Välkommen till Flygande Holländaren",
-            "order" : "Beställ",
+            "order" : "Din beställning",
             "beverages" : "Drycker",
             "login" : "Logga in",
             "banner": "Flygande Holländaren",
@@ -59,6 +59,7 @@ function transl(lang) {
             // $("#" + key) will look for elements that have the ID = key
             // Then we set the text of that object to value.
             $("#" + key).text(value);
-
+            console.log(key);
+            console.log(value);
         });
 }
