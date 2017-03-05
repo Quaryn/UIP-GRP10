@@ -137,7 +137,7 @@ function sortBeverageByType () {
 
     var detailedBeers = getDetailedBeers();
     var len = detailedBeers.length;
-    
+
     var lagers = [];
     var ales = [];
     var porterStout = [];

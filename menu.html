@@ -3,7 +3,7 @@
 <head>
     <title>Flying Dutchman</title>
     <meta charset="utf-8" name="viewport" content="width=device-width, intial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="menu.css">
+    <link rel="stylesheet" type="text/css" href="document.css">
     <script src="js/menu.js"></script>
     <script>docLoaded(indexPageLoaded);</script>
     <script src="js/jquery-3.1.1.min.js"></script>
@@ -23,12 +23,12 @@
 
 </header>
 <!--<h1 id="barmenu">Bar menu</h1>-->
-<div class="order-tab" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <p id="order">Your order here.</p>
-    <div class="orderbuttons">
+<div class="order-tab" id="orderTab" ondrop="drop(event)" ondragover="allowDrop(event)">
+    Your order here.
+    <div id="orderbuttons">
         <button type="submit" onclick="orderDrink()">Payup!</button> <!-- Send in some sort of variable with the data added to the tab, maybe keep track of the order array in the dropoff thingie -->
-        <button type="submit" onclick="backStepOrder('sv')">Undo</button>
-        <button type="submit" onclick="forwardStepOrder('sv')">Redo</button>
+        <button type="submit" onclick="backStepOrder()">Undo</button>
+        <button type="submit" onclick="forwardStepOrder()">Redo</button>
     </div>
 
 </div>
