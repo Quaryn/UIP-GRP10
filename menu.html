@@ -14,15 +14,15 @@
 </head>
 
 <body>
-<header>
-<div>
+
+<div id="header">
     <h1>Flying Dutchman</h1>
     <img class="translate" src="images/sweden.png" style="width:50px;height:50px;" onclick="transl('sv')" />
     <img class="translate" src="images/uk.png" style="width:50px;height:50px;" onclick="transl('eng')" />
 </div>
 
-</header>
-<!--<h1 id="barmenu">Bar menu</h1>-->
+
+<!--Order pane-->
 <div class="order-tab" ondrop="drop(event)" ondragover="allowDrop(event)">
     <p id="order">Your order here.</p>
     <div class="orderbuttons">
@@ -30,8 +30,9 @@
         <button type="submit" onclick="backStepOrder('sv')">Undo</button>
         <button type="submit" onclick="forwardStepOrder('sv')">Redo</button>
     </div>
-
 </div>
+
+<!--Bar menu-->
 <div class="flex-container"> <!-- puts down a large container for all to see, -->
 <aside id="secondary" class="col-md-3 col-sm-3 flex-container-aside">
   <div class="order-drink"> <!-- for some reason cannot press enter -->
@@ -39,8 +40,7 @@
         <!-- .widget STARTS -->
         <div class="widget">
             <div class="widget-inner">
-                <h3 class="widget-title"><button type="button">Beers</button></h3>
-
+                <h2 class="widget-title"">Beers</h2>
                 <div id="code" class="widget-content">
                     <div id="beers">
                     </div>
@@ -49,14 +49,10 @@
         </div>
         <div class="widget">
             <div class="widget-inner">
-                <h3 class="widget-title"><button type="button">Wine</button></h3>
-
+                <h2 class="widget-title">Wine</h2>
                 <div id="store" class="widget-content">
-
                     <div id="wines">
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -64,44 +60,32 @@
         <!-- .widget STARTS -->
         <div class="widget">
             <div class="widget-inner">
-                <h3 class="widget-title"><button>Cider</button></h3>
-
+                <h2 class="widget-title">Cider</h2>
                 <div id="books" class="widget-content">
-
                     <div id="ciders">
-
                     </div>
-
                 </div>
-
             </div>
         </div>
         <!-- .widget ENDS -->
         <!-- .widget STARTS -->
         <div class="widget">
             <div class="widget-inner">
-                <h3 class="widget-title"><button>Others</button></h3>
-
+                <h2 class="widget-title">Others</h2>
                 <div id="books" class="widget-content">
-
                     <div id="others">
-
                     </div>
-
                 </div>
-
             </div>
         </div>
         <!-- .widget ENDS -->
         <!-- .widget STARTS -->
         <div class="widget">
             <div class="widget-inner">
-                <h3 class="widget-title"><button>Alcfree stuffs</button></h3>
-
+                <h2 class="widget-title">Alcfree</h2>
                 <div id="books" class="widget-content">
                     <div id="alcfrees">
                     </div>
-
                 </div>
             </div>
         </div>

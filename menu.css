@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
 
 
-header {
+#header {
     /*box-shadow: 5px 5px 5px #000000;*/
 	background-size: cover;
 	outline: 0;
@@ -55,12 +55,14 @@ body {
 	position: absolute;
 	bottom: 5px;
 	left: 40px;
+	font-size: medium;
+	padding: 5px;
+	margin-left: auto;
 }
 
 .flex-container {
 	position: absolute;
-	left: 10%;
-
+	margin-left: auto;
 }
 
 .widget {
@@ -68,13 +70,10 @@ body {
 	color: darkorange;
 	float: left;
 	display: inline;
+	padding: 15px;
 }
 
-.widegt button {
-	font-family: "Droid Serif", sans-serif;
-	font-size: x-large;
 
-}
 
 
 
