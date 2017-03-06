@@ -15,6 +15,8 @@ localStorage.getItem("username");
 localStorage.getItem("password");
 localStorage.getItem("credentials");
 */
+
+//Retrieves detailed information about a beverage and displays it
 function showInfo(beer_id) {
 
     var response = getDetails(beer_id);
@@ -53,6 +55,7 @@ function drop(ev) {
    }
 }
 
+//Displays a sorted array containing the beverages. Adds a click listener to each item.
 function displaySorted(sortedArray, place){
 
     output = "";
@@ -81,6 +84,7 @@ function indexPageLoaded() {
     panels();
 }
 
+//Initiates panel functionality
 function panels() {
 
     (function ($) {
