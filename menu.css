@@ -60,4 +60,21 @@ body {
 .flex-container {
 	position: absolute;
 	left: 10%;
+
 }
+
+.widget {
+	font-family: "Droid Serif", sans-serif;
+	color: darkorange;
+	float: left;
+	display: inline;
+}
+
+.widegt button {
+	font-family: "Droid Serif", sans-serif;
+	font-size: x-large;
+
+}
+
+
+
