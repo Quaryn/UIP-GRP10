@@ -48,11 +48,31 @@ function drop(ev) {
        var data = ev.dataTransfer.getData("text");
        var para = document.createElement("P");
        var response = getDetails(data);
-       var output = "ID: " + data + " Namn: " + response[0]["namn"] + " Pris: " + response[0]["prisinklmoms"];
+       // No need to display the ID, but we need to keep track of it
+       para.setAttribute("data-id", data);
+       var output = "Namn: " + response[0]["namn"] +  ", Pris : " + response[0]["prisinklmoms"];
        var t = document.createTextNode(output);
        para.appendChild(t);
-       ev.target.appendChild(para);
+       //ev.target.appendChild(para);
+       $(".bar-tab").append(para);
    }
+}
+
+function orderDrink() {
+    // If logged in properly, we can get username and password from storage
+    var uname = localStorage.getItem("username");
+    var pword = localStorage.getItem("password");
+    $(".bar-tab").find("p").each(function(k,v) {
+
+        // Get the ID connected to the paragraph.
+        var id = $(this).data("id");
+
+        // Send the request to the server.
+        HTTPGetRequest("&action=purchases_append&username=" + uname + "&password=" + pword + "&beer_id=" + id);
+        console.log("Sent request for: " + id);
+
+
+    });
 }
 
 //Displays a sorted array containing the beverages. Adds a click listener to each item.

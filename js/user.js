@@ -67,8 +67,8 @@ function loginAttempt() {
             var user = new User();
             user.uid = response.payload[i]["user_id"];
             user.cred = response.payload[i]["credentials"];
-            user.uname = response.payload[i]["username"];
-            user.password = response.payload[i]["password"];
+            user.uname = uname;
+            user.password = pword;
             user.firstname = response.payload[i]["first_name"];
             user.lastname = response.payload[i]["last_name"];
             user.email = response.payload[i]["email"];

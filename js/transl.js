@@ -59,7 +59,5 @@ function transl(lang) {
             // $("#" + key) will look for elements that have the ID = key
             // Then we set the text of that object to value.
             $("#" + key).text(value);
-            console.log(key);
-            console.log(value);
         });
 }

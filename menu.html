@@ -25,6 +25,7 @@
 <!--Order pane-->
 <div class="order-tab" ondrop="drop(event)" ondragover="allowDrop(event)">
     <p id="order">Your order here.</p>
+    <div class="bar-tab"></div>
     <div class="orderbuttons">
         <button type="submit" onclick="orderDrink()">Payup!</button> <!-- Send in some sort of variable with the data added to the tab, maybe keep track of the order array in the dropoff thingie -->
         <button type="submit" onclick="backStepOrder('sv')">Undo</button>
@@ -40,7 +41,7 @@
         <!-- .widget STARTS -->
         <div class="widget">
             <div class="widget-inner">
-                <h2 class="widget-title"">Beers</h2>
+                <h2 class="widget-title">Beers</h2>
                 <div id="code" class="widget-content">
                     <div id="beers">
                     </div>
