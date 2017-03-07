@@ -78,7 +78,7 @@ function orderDrink() {
         totSum += Number(splitWord[1].substring(8));
     });
     $(".bar-tab").html("");
-    alert('Total sum to pay: ' + totSum + 'SEK, would be redirected to some payment method');
+    alert('Total sum to pay: ' + totSum + 'SEK, please pay at the counter');
 }
 
 //Displays a sorted array containing the beverages. Adds a click listener to each item.
