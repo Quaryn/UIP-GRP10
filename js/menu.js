@@ -73,6 +73,7 @@ function orderDrink() {
 
 
     });
+    $(".bar-tab").html("");
 }
 
 //Displays a sorted array containing the beverages. Adds a click listener to each item.
