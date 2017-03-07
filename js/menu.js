@@ -22,7 +22,7 @@ function showInfo(beer_id) {
     var response = getDetails(beer_id);
 
 
-    var output = "<b id='name'>Namn:</b> " + response[0]["namn"] + "<br><b id='price'>Pris:</b> " + response[0]["prisinklmoms"] + "<br><b id='volume'>Volym:</b> " + response[0]["volymiml"] + "<br><b id='group'>Varugrupp:</b> " + response[0]["varugrupp"] +
+    var output = "<b id='name'>Namn:</b> " + response[0]["namn"] + " " + response[0]["namn2"] + "<br><b id='price'>Pris:</b> " + response[0]["prisinklmoms"] + "<br><b id='volume'>Volym:</b> " + response[0]["volymiml"] + "<br><b id='group'>Varugrupp:</b> " + response[0]["varugrupp"] +
             "<br><b id='container'>Förpackning:</b> " + response[0]["forpackning"] + "<br><b id='origin'>Ursprung:</b> " + response[0]["ursprunglandnamn"] + "<br><b id='producer'>Producent:</b> " +
         response[0]["producent"] + "<br><b id='alcohol'>Alkoholhalt:</b> " + response[0]["alkoholhalt"];
     document.getElementById("beerInfo").style.display = "initial";
@@ -50,7 +50,7 @@ function drop(ev) {
        var response = getDetails(data);
        // No need to display the ID, but we need to keep track of it
        para.setAttribute("data-id", data);
-       var output = "Namn: " + response[0]["namn"] +  ", Pris : " + response[0]["prisinklmoms"];
+       var output = "Namn: " + response[0]["namn"] + " " + response[0]["namn2"] +  ", Pris : " + response[0]["prisinklmoms"];
        var t = document.createTextNode(output);
        para.appendChild(t);
        //ev.target.appendChild(para);
