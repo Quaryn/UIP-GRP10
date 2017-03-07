@@ -62,6 +62,9 @@ function orderDrink() {
     // If logged in properly, we can get username and password from storage
     var uname = localStorage.getItem("username");
     var pword = localStorage.getItem("password");
+    var totSum = 0;
+
+    // Find each p-tag in the bar-tab.
     $(".bar-tab").find("p").each(function(k,v) {
 
         // Get the ID connected to the paragraph.
@@ -70,10 +73,12 @@ function orderDrink() {
         // Send the request to the server.
         HTTPGetRequest("&action=purchases_append&username=" + uname + "&password=" + pword + "&beer_id=" + id);
         console.log("Sent request for: " + id);
-
-
+        var splitWord = $(this).text().split(",");
+        //console.log(splitWord[1].substring(8));
+        totSum += Number(splitWord[1].substring(8));
     });
     $(".bar-tab").html("");
+    alert('Total sum to pay: ' + totSum + 'SEK, would be redirected to some payment method');
 }
 
 //Displays a sorted array containing the beverages. Adds a click listener to each item.
