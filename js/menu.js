@@ -81,6 +81,12 @@ function orderDrink() {
     alert('Total sum to pay: ' + totSum + 'SEK, please pay at the counter');
 }
 
+function backStepOrder() {
+  var test = document.getElementById('bar-tab');
+  test.removeChild(test.lastChild);
+
+}
+
 //Displays a sorted array containing the beverages. Adds a click listener to each item.
 function displaySorted(sortedArray, place){
 
