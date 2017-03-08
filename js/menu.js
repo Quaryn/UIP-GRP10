@@ -84,6 +84,13 @@ function orderDrink() {
     alert('Total sum to pay: ' + totSum + 'SEK, please pay at the counter');
 }
 
+function forwardStepOrder() {
+  if (RedoList.length > 0)
+  {
+      $(".bar-tab").append(RedoList.pop());
+  }
+}
+
 //Only removes the most recently added item
 function backStepOrder() {
   var bartab = document.getElementById('bar-tab');
