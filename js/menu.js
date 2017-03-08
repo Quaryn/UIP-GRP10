@@ -16,6 +16,9 @@ localStorage.getItem("password");
 localStorage.getItem("credentials");
 */
 
+var RedoList = [];
+var RedoNumber = 5
+
 //Retrieves detailed information about a beverage and displays it
 function showInfo(beer_id) {
 
@@ -38,6 +41,7 @@ function allowDrop(ev) {
 function drag(ev) {
      var id = ev.currentTarget.dataset.name;
      ev.dataTransfer.setData("text", id);
+     // Should be able to load in all the information we need here to make it more effective?
 }
 
 function drop(ev) {
@@ -53,7 +57,6 @@ function drop(ev) {
        var output = "Namn: " + response[0]["namn"] + " " + response[0]["namn2"] +  ", Pris : " + response[0]["prisinklmoms"];
        var t = document.createTextNode(output);
        para.appendChild(t);
-       //ev.target.appendChild(para);
        $(".bar-tab").append(para);
    }
 }
@@ -81,9 +84,18 @@ function orderDrink() {
     alert('Total sum to pay: ' + totSum + 'SEK, please pay at the counter');
 }
 
+//Only removes the most recently added item
 function backStepOrder() {
-  var test = document.getElementById('bar-tab');
-  test.removeChild(test.lastChild);
+  var bartab = document.getElementById('bar-tab');
+  if (bartab.children.length > 0)
+  {
+      var item = bartab.lastChild;
+      RedoList.push(item);
+      if (RedoList.length > RedoNumber){
+        RedoList.splice(0,1)
+      };
+      bartab.removeChild(item);
+  }
 
 }
 
