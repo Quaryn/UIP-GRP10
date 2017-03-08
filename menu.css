@@ -74,6 +74,11 @@ body {
 }
 
 
-
+#beerInfo {
+	position: absolute;
+	top: 45%;
+	left: 35%;
+	color: #ffffff;
+}
 
 
