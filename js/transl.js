@@ -25,7 +25,7 @@ var json = {"language" : {
             "producer" : "Producer",
             "alcohol" : "Alcohol",
             "username" : "Username",
-            "password" : "Password"
+            "password" : "Password",
             "beer1" : "Beers",
             "wine1" : "Wine",
             "cider1" : "Cider",
