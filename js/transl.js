@@ -30,7 +30,10 @@ var json = {"language" : {
             "wine1" : "Wine",
             "cider1" : "Cider",
             "others1" : "Others",
-            "alcfree1" : "Alcfree"},
+            "alcfree1" : "Alcfree",
+            "payuup" : "Payup!",
+            "undoo" : "Undo",
+            "redoo" : "Redo"},
     "sv" : {"welcome" : "Välkommen till Flygande Holländaren",
             "order" : "Din beställning",
             "beverages" : "Drycker",
@@ -50,7 +53,10 @@ var json = {"language" : {
             "wine1" : "Vin",
             "cider1" : "Cider",
             "others1" : "Övrigt",
-            "alcfree1" : "Alkfritt"}}
+            "alcfree1" : "Alkfritt",
+            "payuup" : "Betala!",
+            "undoo" : "Ångra",
+            "redoo" : "Upprepa"}}
 };
 
 
