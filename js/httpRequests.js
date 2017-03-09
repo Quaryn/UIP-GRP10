@@ -8,7 +8,7 @@
 // not asynchronus, if someone wants to try to make it so, go ahead ;)
 
 function HTTPGetRequest(theAction) {
-    var jsonAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=ervtod&password=ervtod" + theAction;
+    var jsonAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=saskru&password=saskru" + theAction;
 
     var jVar;
 

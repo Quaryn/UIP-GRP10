@@ -59,7 +59,7 @@ function loginAttempt() {
     //console.log(uname);
     //console.log(md5pword);
     // Use admin ervtod to look through all users, and if there is any user that matches this attempt.
-    var response = HTTPGetRequest("&action=user_get_all&username=ervtod&password=ervtod");
+    var response = HTTPGetRequest("&action=user_get_all&username=saskru&password=saskru");
 
     for (var i = 0; i < response.payload.length; i++) {
         if (uname == response.payload[i]["username"] && md5pword == response.payload[i]["password"]) {

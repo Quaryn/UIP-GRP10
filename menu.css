@@ -37,7 +37,7 @@ body {
 }*/
 
 .order-tab {
-	position: absolute;
+	position: fixed;
 	right: 10%;
 	order: 1;
 	background-color: white;
@@ -59,7 +59,10 @@ body {
 	padding: 5px;
 	margin-left: auto;
 }
-
+#bar-tab {
+	overflow-y: scroll;
+	height: 85%;
+}
 .flex-container {
 	position: absolute;
 	margin-left: auto;
@@ -75,10 +78,13 @@ body {
 
 
 #beerInfo {
-	position: absolute;
-	top: 45%;
-	left: 35%;
+	position: fixed;
+	top: 50%;
+	left: 37%;
 	color: #bcbcbc;
 }
 
+#order {
+	text-align: center;
+}
 
