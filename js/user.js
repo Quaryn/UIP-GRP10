@@ -13,40 +13,6 @@ function User(uid, cred, uname, pword, firstname, lastname, email, phone) {
     this.phone = phone;
 }
 
-// In case we want to register a new user. In the future.
-// http://pub.jamaica-inn.net/fpdb/api.php?action=user_edit&new_username=johhul&new_password=johhul&first_name=johan&
-// last_name=hullberg&email=test@test.com&phone=999&username=ervtod&password=ervtod
-/*function registerUser(user) {
-    var uname = user.uname;
-    var pword = user.pword;
-    var fname = user.firstname;
-    var lname = user.lastname;
-    var email = user.email;
-    var phone = user.phone;
-    // Will use the ervtod-admin account to add a new user to the database
-    var response = JSON.parse(HTTPGetRequest("user_edit&new_username=" + uname + "&new_password=" + pword + "&first_name" + fname + "&last_name=" + lname + "&email=" + email + "&phone=" + phone + "&username=ervtod&password=ervtod"));
-
-    if (response["type"] == "User " + uname + " added") {
-        // User successfully created
-
-    }
-    else {
-        // Something went wrong
-
-    }
-}*/
-
-
-
-function userInDB(uname) {
-    var response = HTTPGetRequest("&action=user_get_all&username=ervtod&password=ervtod");
-    for (var i = 0; i < response.payload.length; i++) {
-        if (uname == response.payload[i]["username"]) {
-            return true;
-        }
-    }
-    return false;
-}
 
 //{"user_id" : "107","credentials" : "3","password" : "d41d8cd98f00b204e9800998ecf8427e","username" : "",
 // "first_name" : "","last_name" : "","email" : "","phone" : ""}
@@ -56,9 +22,7 @@ function loginAttempt() {
     var uname = document.getElementById("username").value;
     var pword = document.getElementById("password").value;
     var md5pword = md5(pword);
-    //console.log(uname);
-    //console.log(md5pword);
-    // Use admin ervtod to look through all users, and if there is any user that matches this attempt.
+    // Use admin saskru to look through all users, and if there is any user that matches this attempt.
     var response = HTTPGetRequest("&action=user_get_all&username=saskru&password=saskru");
 
     for (var i = 0; i < response.payload.length; i++) {
@@ -78,28 +42,13 @@ function loginAttempt() {
             localStorage.setItem("username",user.uname);
             localStorage.setItem("password",user.password);
             localStorage.setItem("credentials",user.cred);
-            //window.location.pathname = '/menu.html';
             window.location = 'http://localhost:63342/UIP-GRP10/menu.html?_ijt=5886dcj0llaoik11mq9m4lgu17';
-            /*console.log(localStorage.getItem("username"));
-            console.log(localStorage.getItem("password"));
-            console.log(localStorage.getItem("credentials"));*/
-
-
         }
-        /* This made an alert for each user in the database, heh
-        else {
-            // Failure
-            if (uname == response.payload[i]["username"]) {
-                alert("User exists, wrong password");
-                // Choco: Changed to "The password is wrong"?
-            }
-            else {alert("User is not in database");}
-            // Choco: Changed to "The username is wrong"?
-        }*/
     }
 }
 
 // {"type" : "iou_get", "payload" : [{"user_id" : "24","first_name" : "Ervin","last_name" : "Todd","assets" : "-1090"}]}
+// Not used yet
 function getDebt(user) {
     var response = HTTPGetRequest("&action=iou_get&username=" + user.uname + "&password=" + user.pword);
     var listOfDebts = [];
@@ -111,6 +60,7 @@ function getDebt(user) {
 
 // {"type" : "payments_get_all", "payload" : [{"transaction_id" : "191","user_id" : "24","admin_id" : "25",
 // "amount" : "500","timestamp" : "2014-10-03 17:47:48"}]}
+// Not used yet
 function getPayments(user) {
     var response = HTTPGetRequest("&action=payments_get&username=" + user.uname + "&password=" + user.pword);
     var len = response.payload.length;
