@@ -1,4 +1,4 @@
-@import url("reset.css");
+
 @import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
 
 
@@ -94,7 +94,7 @@ body {
 }
 
 a {
-	color: #bcbcbc;
+	color: #7a857d;
 }
 
 
