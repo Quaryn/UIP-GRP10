@@ -76,6 +76,11 @@ body {
 	padding: 15px;
 }
 
+.widget-content {
+	list-style-type: none;
+	color: #bcbcbc;
+
+}
 
 #beerInfo {
 	position: fixed;
@@ -87,4 +92,13 @@ body {
 #order {
 	text-align: center;
 }
+
+a {
+	color: #bcbcbc;
+	text-decoration: none;
+}
+
+
+
+
 
