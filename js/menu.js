@@ -81,8 +81,15 @@ function orderDrink() {
         totSum += Number(splitWord[1].substring(8));
     });
     $(".bar-tab").html("");
-    alert('Total sum to pay: ' + totSum + 'SEK, please pay at the counter');
+    /* alert('Total sum to pay: ' + totSum + 'SEK, please pay at the counter');*/
+    /*Replace alert as popup total. Display popup total when clicking payup.*/
+    document.getElementById("Popup").innerHTML = "Total sum to pay: " + totSum + "SEK, please pay at the counter.";
+    var popup = document.getElementById("Popup");
+    popup.classList.toggle("show");
+
+
 }
+
 
 function forwardStepOrder() {
   if (RedoList.length > 0)
