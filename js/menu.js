@@ -83,11 +83,27 @@ function orderDrink() {
     $(".bar-tab").html("");
     /* alert('Total sum to pay: ' + totSum + 'SEK, please pay at the counter');*/
     /*Replace alert as popup total. Display popup total when clicking payup.*/
-    document.getElementById("Popup").innerHTML = "Total sum to pay: " + totSum + "SEK, please pay at the counter.";
-    var popup = document.getElementById("Popup");
-    popup.classList.toggle("show");
 
+    var poppup = document.getElementById("pay-poppup");
+    poppup.children[0].children[1].innerHTML = "Total sum to pay: " + totSum + " SEK, please pay at the counter."
+    poppup.style.display = "block";
 
+    //poppup.innerHTML = "Total sum to pay: " + totSum + "SEK, please pay at the counter.";
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("closee")[0];
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == document.getElementById("pay-poppup")) {
+        document.getElementById("pay-poppup").style.display = "none";
+    }
+}
+
+// When the user clicks on <span> (x), close the poppup
+span.onclick = function() {
+    document.getElementById("pay-poppup").style.display = "none";
 }
 
 
