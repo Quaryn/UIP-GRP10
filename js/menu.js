@@ -87,8 +87,6 @@ function orderDrink() {
     var poppup = document.getElementById("pay-poppup");
     poppup.children[0].children[1].innerHTML = "Total sum to pay: " + totSum + " SEK, please pay at the counter."
     poppup.style.display = "block";
-
-    //poppup.innerHTML = "Total sum to pay: " + totSum + "SEK, please pay at the counter.";
 }
 
 // Get the <span> element that closes the modal
@@ -158,13 +156,43 @@ function indexPageLoaded() {
     panels();
 }
 
+
+function closeAll(){
+  var AllWidgetTitles = document.getElementsByClassName("widget-title");
+  for (i = 0; i < AllWidgetTitles.length; i++) {
+      if ($(AllWidgetTitles[i]).parents('.widget').hasClass('active'))
+      {
+        $(AllWidgetTitles[i]).next('.widget-content').toggle(200);
+        $(AllWidgetTitles[i]).parents('.widget').removeClass('active')
+      }
+  }
+}
+
+
 //Initiates panel functionality
 function panels() {
 
+  //Don't know why these are open in the beginning, and don't know how to close them in a good way, so this wil do for now.
+var AllWidgetTitles = document.getElementsByClassName("widget-title");
+$(AllWidgetTitles[0]).next('.widget-content').toggle(200);
+$(AllWidgetTitles[3]).next('.widget-content').toggle(200);
+
+
     (function ($) {
         $("#secondary").on('click', '.widget-title', function (e) {
-            $(this).next('.widget-content').toggle(200);
-            $(this).parents('.widget').toggleClass('active');
+              if ($(this).parents('.widget').hasClass('active'))
+              {
+                // If the active type was clicked then it whould be closed.
+                closeAll();
+              }
+              else
+              {
+                //If the type clicked was not active, close all types and after that open the chosen type.
+                closeAll();
+                $(this).next('.widget-content').toggle(200);
+                $(this).parents('.widget').addClass('active');
+              }
+
         });
     })(jQuery);
 
