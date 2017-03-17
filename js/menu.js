@@ -87,21 +87,22 @@ function orderDrink() {
     var poppup = document.getElementById("pay-poppup");
     poppup.children[0].children[1].innerHTML = "Total sum to pay: " + totSum + " SEK, please pay at the counter."
     poppup.style.display = "block";
-}
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("closee")[0];
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("closee")[0];
+
+
+    // When the user clicks on <span> (x), close the poppup
+    span.onclick = function() {
+      poppup.style.display = "none";
+    }
+}
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == document.getElementById("pay-poppup")) {
         document.getElementById("pay-poppup").style.display = "none";
     }
-}
-
-// When the user clicks on <span> (x), close the poppup
-span.onclick = function() {
-    document.getElementById("pay-poppup").style.display = "none";
 }
 
 
