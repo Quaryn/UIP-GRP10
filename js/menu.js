@@ -16,7 +16,9 @@ localStorage.getItem("password");
 localStorage.getItem("credentials");
 */
 
+//A redolist to keep track of undone items.
 var RedoList = [];
+//The maxmum number of items in the redolist
 var RedoNumber = 5
 
 //Retrieves detailed information about a beverage and displays it
@@ -34,16 +36,19 @@ function showInfo(beer_id) {
 
 }
 
+//needed to prevent the default mechanics.
 function allowDrop(ev) {
      ev.preventDefault();
 }
 
+//Called when you start to drag, then add that items information onto the event
 function drag(ev) {
      var id = ev.currentTarget.dataset.name;
      ev.dataTransfer.setData("text", id);
      // Should be able to load in all the information we need here to make it more effective?
 }
 
+//Called when yuo drop an item. If you drop it on the bartab, then we extract the data from the event and then add the item onto the bartab
 function drop(ev) {
      if (ev.currentTarget.className == "order-tab")
      {
@@ -81,16 +86,14 @@ function orderDrink() {
         totSum += Number(splitWord[1].substring(8));
     });
     $(".bar-tab").html("");
-    /* alert('Total sum to pay: ' + totSum + 'SEK, please pay at the counter');*/
-    /*Replace alert as popup total. Display popup total when clicking payup.*/
 
+    /*Display popup total when clicking payup.*/
     var poppup = document.getElementById("pay-poppup");
     poppup.children[0].children[1].innerHTML = "Total sum to pay: " + totSum + " SEK, please pay at the counter."
     poppup.style.display = "block";
 
-    // Get the <span> element that closes the modal
+    // Get the <span> element that closes the poppup
     var span = document.getElementsByClassName("closee")[0];
-
 
     // When the user clicks on <span> (x), close the poppup
     span.onclick = function() {
@@ -105,7 +108,7 @@ window.onclick = function(event) {
     }
 }
 
-
+//When you click redo, Take the most resently added item in the redolist and add it onto the bar-tab.
 function forwardStepOrder() {
   if (RedoList.length > 0)
   {
@@ -137,19 +140,15 @@ function displaySorted(sortedArray, place){
 
         output += "<li>" + "<a class='clickInfo' href='#' data-name =" + sortedArray[key]["nr"] + " draggable='true' ondragstart='drag(event)'>" + sortedArray[key]["pname"] +
             "<br>Price: " + sortedArray[key]["price"] +  "</a></li>";
-
     }
 
-
    $(place).append(output);
-
-    $(".clickInfo").click(function (event) {
+   $(".clickInfo").click(function (event) {
         event.preventDefault();
 
         var id = $(this).attr("data-name");
         showInfo(id);
     })
-
 }
 
 function indexPageLoaded() {
@@ -157,7 +156,7 @@ function indexPageLoaded() {
     panels();
 }
 
-
+//Closing all tabbs (in the menu)
 function closeAll(){
   var AllWidgetTitles = document.getElementsByClassName("widget-title");
   for (i = 0; i < AllWidgetTitles.length; i++) {
