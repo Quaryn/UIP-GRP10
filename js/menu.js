@@ -88,23 +88,23 @@ function orderDrink() {
     $(".bar-tab").html("");
 
     /*Display popup total when clicking payup.*/
-    var poppup = document.getElementById("pay-poppup");
-    poppup.children[0].children[1].innerHTML = "Total sum to pay: " + totSum + " SEK, please pay at the counter."
-    poppup.style.display = "block";
+    var popup = document.getElementById("pay-popup");
+    popup.children[0].children[1].innerHTML = "Total sum to pay: " + totSum + " SEK, please pay at the counter."
+    popup.style.display = "block";
 
-    // Get the <span> element that closes the poppup
+    // Get the <span> element that closes the popup
     var span = document.getElementsByClassName("closee")[0];
 
-    // When the user clicks on <span> (x), close the poppup
+    // When the user clicks on <span> (x), close the popup
     span.onclick = function() {
-      poppup.style.display = "none";
+      popup.style.display = "none";
     }
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == document.getElementById("pay-poppup")) {
-        document.getElementById("pay-poppup").style.display = "none";
+    if (event.target == document.getElementById("pay-popup")) {
+        document.getElementById("pay-popup").style.display = "none";
     }
 }
 
@@ -138,7 +138,7 @@ function displaySorted(sortedArray, place){
 
     for (var key in sortedArray) {
 
-        output += "<li>" + "<a class='clickInfo' href='#' data-name =" + sortedArray[key]["nr"] + " draggable='true' ondragstart='drag(event)'>" + sortedArray[key]["pname"] +
+        output += "<li>" + "<a title='Drag drinks to your order.' class='clickInfo' href='#' data-name =" + sortedArray[key]["nr"] + " draggable='true' ondragstart='drag(event)'>" + sortedArray[key]["pname"] +
             "<br>Price: " + sortedArray[key]["price"] +  "</a></li>";
     }
 

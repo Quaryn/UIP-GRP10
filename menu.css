@@ -32,7 +32,7 @@ body {
 }
 
 /* The Modal (background) */
-.poppup {
+.popup {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -47,7 +47,7 @@ body {
 }
 
 /* Modal Content */
-.poppup-content {
+.popup-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -137,14 +137,15 @@ a {
 }
 
 
-/* Toggle this class - hide and show the popup total*/
+/* Toggle this class - hide and show the popup total
 .total .show {
 	visibility: visible;
 	-webkit-animation: fadeIn 1s;
 	animation: fadeIn 1s;
 }
+*/
 
-/* Add animation (fade in the popup total) */
+/* Add animation (fade in the popup total)
 @-webkit-keyframes fadeIn {
 	from {opacity: 0;}
 	to {opacity: 1;}
@@ -154,3 +155,4 @@ a {
 	from {opacity: 0;}
 	to {opacity:1 ;}
 }
+*/
